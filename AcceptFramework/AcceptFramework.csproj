@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9A823440-3CBA-46B6-AF1A-C08F6C8755B4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AcceptFramework</RootNamespace>
+    <AssemblyName>AcceptFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\AcceptApi\packages\Antlr.3.1.3.42154\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet">
+      <HintPath>..\AcceptApi\packages\DotNetOpenAuth.AspNet.4.0.4.12182\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core">
+      <HintPath>..\AcceptApi\packages\DotNetOpenAuth.Core.4.0.4.12182\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth">
+      <HintPath>..\AcceptApi\packages\DotNetOpenAuth.OAuth.Core.4.0.4.12182\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer">
+      <HintPath>..\AcceptApi\packages\DotNetOpenAuth.OAuth.Consumer.4.0.4.12182\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId">
+      <HintPath>..\AcceptApi\packages\DotNetOpenAuth.OpenId.Core.4.0.4.12182\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty">
+      <HintPath>..\AcceptApi\packages\DotNetOpenAuth.OpenId.RelyingParty.4.0.4.12182\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\Libs\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\Libs\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="LinFu.DynamicProxy">
+      <HintPath>..\Libs\LinFu.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\AcceptApi\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes">
+      <HintPath>..\AcceptApi\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\AcceptApi\packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\AcceptApi\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\Libs\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.LinFu">
+      <HintPath>..\Libs\NHibernate.ByteCode.LinFu.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Data.Linq">
+      <HintPath>..\Libs\Remotion.Data.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\AcceptApi\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\AcceptApi\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\AcceptApi\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\AcceptApi\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\AcceptApi\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\AcceptApi\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\AcceptApi\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebGrease">
+      <HintPath>..\AcceptApi\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\AcceptApi\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\AcceptApi\packages\Microsoft.AspNet.WebPages.WebData.2.0.30506.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Business\AcceptApiServiceLocator.cs" />
+    <Compile Include="Business\Audit\AuditManager.cs" />
+    <Compile Include="Business\Miscellaneous\MiscellaneousManager.cs" />
+    <Compile Include="Business\PostEditAudit\PostEditAuditManager.cs" />
+    <Compile Include="Business\Common\DomainManager.cs" />
+    <Compile Include="Business\Common\UniverseManager.cs" />
+    <Compile Include="Business\Common\UserManager.cs" />
+    <Compile Include="Business\Evaluation\EvaluationProjectManager.cs" />
+    <Compile Include="Business\PostEdit\ProjectManager.cs" />
+    <Compile Include="Business\Session\SessionManager.cs" />
+    <Compile Include="Business\Utils\StringUtils.cs" />
+    <Compile Include="Business\Utils\CoreUtils.cs" />
+    <Compile Include="DataAccess\NhibernateContext.cs" />
+    <Compile Include="DataAccess\NhibernateSessionFactory.cs" />
+    <Compile Include="Domain\Audit\AcceptAudit.cs" />
+    <Compile Include="Domain\Audit\AuditApiRequest.cs" />
+    <Compile Include="Domain\Audit\AuditFlag.cs" />
+    <Compile Include="Domain\Audit\AuditPostEditRevisionLock.cs" />
+    <Compile Include="Domain\Audit\AuditUserAction.cs" />
+    <Compile Include="Domain\Audit\CoreAudit.cs" />
+    <Compile Include="Domain\Audit\CoreAuditAction.cs" />
+    <Compile Include="Domain\Audit\CoreAuditDefaultAction.cs" />
+    <Compile Include="Domain\Audit\CoreAuditDefaultType.cs" />
+    <Compile Include="Domain\Audit\CoreAuditType.cs" />
+    <Compile Include="Domain\Audit\PageVisitAudit.cs" />
+    <Compile Include="Domain\Common\Configuration.cs" />
+    <Compile Include="Domain\Common\Domain.cs" />
+    <Compile Include="Domain\Common\Engine.cs" />
+    <Compile Include="Domain\Common\ApiKeys.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationContentChunk.cs" />
+    <Compile Include="Domain\Miscellaneous\ExternalUsage.cs" />
+    <Compile Include="Domain\Common\Language.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Role.cs" />
+    <Compile Include="Domain\Common\Universe.cs" />
+    <Compile Include="Domain\Common\User.cs" />
+    <Compile Include="Domain\DomainBase.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationSimpleScore.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationQuestionItemAnswer.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationQuestionItem.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationDocumentSimple.cs" />
+    <Compile Include="Domain\PostEditAudit\AlternativeTranslation.cs" />
+    <Compile Include="Domain\PostEditAudit\DocumentRevision.cs" />
+    <Compile Include="Domain\PostEditAudit\PhaseCount.cs" />
+    <Compile Include="Domain\PostEditAudit\PhaseCountGroup.cs" />
+    <Compile Include="Domain\PostEditAudit\PhaseNote.cs" />
+    <Compile Include="Domain\PostEditAudit\Phase.cs" />
+    <Compile Include="Domain\PostEditAudit\QuestionReply.cs" />
+    <Compile Include="Domain\PostEditAudit\ThinkPhase.cs" />
+    <Compile Include="Domain\PostEditAudit\TranslationUnit.cs" />
+    <Compile Include="Domain\PostEditAudit\TranslationRevision.cs" />
+    <Compile Include="Domain\PostEdit\Document.cs" />
+    <Compile Include="Domain\PostEdit\ExternalPostEditUser.cs" />
+    <Compile Include="Domain\PostEdit\ExternalUserProjectRole.cs" />
+    <Compile Include="Domain\PostEdit\OptionValueObject.cs" />
+    <Compile Include="Domain\PostEdit\Project.cs" />
+    <Compile Include="Domain\PostEdit\PostEditOption.cs" />
+    <Compile Include="Domain\PostEdit\ProjectInvitation.cs" />
+    <Compile Include="Domain\PostEdit\ProjectQuestion.cs" />
+    <Compile Include="Domain\PostEdit\SourceSentence.cs" />
+    <Compile Include="Domain\PostEdit\TargetSentence.cs" />
+    <Compile Include="Domain\PostEdit\TargetSentenceOption.cs" />
+    <Compile Include="Domain\PostEdit\TargetTemplate.cs" />
+    <Compile Include="Domain\PostEdit\UserDomainRole.cs" />
+    <Compile Include="Domain\PostEdit\UserProjectRole.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationScore.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationQuestion.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationAuthorType.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationCategory.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationContributor.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationDocument.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationDocumentStatistic.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationDocumentUserStatus.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationType.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationDirection.cs" />
+    <Compile Include="Domain\Evaluation\FakeParagraph.cs" />
+    <Compile Include="Domain\Evaluation\FakeProjectStatistic.cs" />
+    <Compile Include="Domain\Evaluation\FakeTask.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationParagraphScoring.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationParagraphStatistic.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationProjectLanguagePair.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationProjectProvider.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationProjectStatistic.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationProvider.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationProjectMode.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationProject.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationLanguage.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationLanguagePair.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationReferenceSegment.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationScoring.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationSourceParagraph.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationSourceParagraphScoring.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationSourceSegment.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationSourceSegmentScoring.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationStatus.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationTargetParagraphScoring.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationTargetSegment.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationTargetSegmentScoring.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationUserSpokenLanguages.cs" />
+    <Compile Include="Domain\Session\AcceptSession.cs" />
+    <Compile Include="Domain\Session\ApiGlobalSession.cs" />
+    <Compile Include="Interfaces\Miscellaneous\IMiscellaneousManagerService.cs" />
+    <Compile Include="Interfaces\PostEditAudit\IPostEditAuditManager.cs" />
+    <Compile Include="Interfaces\Common\IDomainManager.cs" />
+    <Compile Include="Interfaces\Common\IUniverseManager.cs" />
+    <Compile Include="Interfaces\Common\IUserManager.cs" />
+    <Compile Include="Interfaces\Evaluation\IEvaluationProjectManager.cs" />
+    <Compile Include="Interfaces\IAcceptApiServiceLocator.cs" />
+    <Compile Include="Interfaces\Audit\IAuditManager.cs" />
+    <Compile Include="Interfaces\PostEdit\IProjectManager.cs" />
+    <Compile Include="Interfaces\Session\ISessionManager.cs" />
+    <Compile Include="Mapping\Audit\AuditApiRequestMap.cs" />
+    <Compile Include="Domain\Audit\AcceptAuditType.cs" />
+    <Compile Include="Mapping\Audit\AuditFlagMap.cs" />
+    <Compile Include="Mapping\Audit\AuditPostEditRevisionLockMap.cs" />
+    <Compile Include="Mapping\Audit\AuditUserActionMap.cs" />
+    <Compile Include="Mapping\Audit\PageVisitAuditMap.cs" />
+    <Compile Include="Mapping\Common\ApiKeysMap.cs" />
+    <Compile Include="Mapping\Common\ConfigurationMap.cs" />
+    <Compile Include="Mapping\Common\DomainMap.cs" />
+    <Compile Include="Mapping\Common\EngineMap.cs" />
+    <Compile Include="Mapping\Common\LanguageMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mapping\Common\RoleMap.cs" />
+    <Compile Include="Mapping\Common\UniverseMap.cs" />
+    <Compile Include="Mapping\Common\UserMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mapping\Evaluation\EvaluationContentChunkMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationSimpleScoresMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationQuestionItemAnswersMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationQuestionItemsMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationQuestionsMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationAuthorTypesMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationCategoryMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationContributorsMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationDocumentsMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationDocumentUserStatusesMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationProjectMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationLanguagePairsMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationLanguagesMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationParagraphScoringMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationProjectLanguagePairMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationProjectProviderMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationProvidersMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationReferenceSegmentsMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationScoringsMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationSourceParagraphsMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationSourceSegmentsMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationTargetSegmentsMap.cs" />
+    <Compile Include="Mapping\Evaluation\EvaluationUserSpokenLanguagesMap.cs" />
+    <Compile Include="Mapping\Miscellaneous\ExternalUsageMap.cs" />
+    <Compile Include="Mapping\PostEditAudit\AlternativeTranslationMap.cs" />
+    <Compile Include="Mapping\PostEditAudit\PhaseCountGroupMap.cs" />
+    <Compile Include="Mapping\PostEditAudit\PhaseCountMap.cs" />
+    <Compile Include="Mapping\PostEditAudit\PhaseMap.cs" />
+    <Compile Include="Mapping\PostEditAudit\PhaseNoteMap.cs" />
+    <Compile Include="Mapping\PostEditAudit\QuestionReplyMap.cs" />
+    <Compile Include="Mapping\PostEditAudit\ThinkPhaseMap.cs" />
+    <Compile Include="Mapping\PostEditAudit\TranslationUnitMap.cs" />
+    <Compile Include="Mapping\PostEdit\DocumentMap.cs" />
+    <Compile Include="Mapping\PostEditAudit\DocumentRevisionMap.cs" />
+    <Compile Include="Mapping\PostEdit\ExternalPostEditUserMap.cs" />
+    <Compile Include="Mapping\PostEdit\ExternalUserProjectRoleMap.cs" />
+    <Compile Include="Mapping\PostEdit\OptionValueObjectsMap.cs" />
+    <Compile Include="Mapping\PostEdit\PostEditOptionMap.cs" />
+    <Compile Include="Mapping\PostEdit\ProjectInvitationMap.cs" />
+    <Compile Include="Mapping\PostEdit\ProjectMap.cs" />
+    <Compile Include="Mapping\PostEdit\ProjectQuestionMap.cs" />
+    <Compile Include="Mapping\PostEdit\SourceSentenceMap.cs" />
+    <Compile Include="Mapping\PostEdit\TargetSentenceMap.cs" />
+    <Compile Include="Mapping\PostEdit\TargetSentenceOptionMap.cs" />
+    <Compile Include="Mapping\PostEditAudit\TranslationRevisionMap.cs" />
+    <Compile Include="Mapping\PostEdit\TargetTemplateMap.cs" />
+    <Compile Include="Mapping\PostEdit\UserDomainRoleMap.cs" />
+    <Compile Include="Mapping\PostEdit\UserProjectRoleMap.cs" />
+    <Compile Include="Mapping\Session\AcceptSessionMap.cs" />
+    <Compile Include="Mapping\Session\ApiGlobalSessionMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Audit\AuditFlagRepository.cs" />
+    <Compile Include="Repository\Audit\AuditPostEditRevisionLockRepository.cs" />
+    <Compile Include="Repository\Audit\AuditRepository.cs" />
+    <Compile Include="Repository\Audit\PageVisitRepository.cs" />
+    <Compile Include="Repository\Audit\UserAuditRepository.cs" />
+    <Compile Include="Repository\Common\ApiKeyRepository.cs" />
+    <Compile Include="Repository\Common\DomainRepository.cs" />
+    <Compile Include="Repository\Common\LanguageRepository.cs" />
+    <Compile Include="Repository\Common\RolesRepository.cs" />
+    <Compile Include="Repository\Common\UniverseRepository.cs" />
+    <Compile Include="Repository\Common\UserRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationContentChunkRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationSimpleScoresRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationQuestionItemAnswersRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationQuestionItemsRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationAuthorTypeRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationCategoryRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationContributorRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationDocumentsRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationDocumentUserStatusesRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationParagraphScoringRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationQuestionsRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationLanguagesRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationProvidersRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationLanguagePairsRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationProjectRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationReferenceSegmentRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationScoringRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationSourceParagraphRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationSourceParagraphScoringRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationSourceSegmentRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationSourceSegmentScoringRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationTargetParagraphScoringRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationTargetSegmentRepository.cs" />
+    <Compile Include="Repository\Evaluation\EvaluationTargetSegmentScoringRepository.cs" />
+    <Compile Include="Repository\Miscellaneous\ExternalUsageRepository.cs" />
+    <Compile Include="Repository\PostEditAudit\CountGroupRepository.cs" />
+    <Compile Include="Repository\PostEditAudit\CountRepository.cs" />
+    <Compile Include="Repository\PostEditAudit\DocumentRevisionRepository.cs" />
+    <Compile Include="Repository\PostEditAudit\PhaseNoteRepository.cs" />
+    <Compile Include="Repository\PostEditAudit\PhaseRepository.cs" />
+    <Compile Include="Repository\PostEditAudit\ThinkPhaseRepository.cs" />
+    <Compile Include="Repository\PostEditAudit\TranslationRevisionRepository.cs" />
+    <Compile Include="Repository\PostEditAudit\TranslationUnitRepository.cs" />
+    <Compile Include="Repository\PostEdit\DocumentRepository.cs" />
+    <Compile Include="Repository\PostEdit\ExternalPostEditUserRepository.cs" />
+    <Compile Include="Repository\PostEdit\ExternalUserProjectRoleRepository.cs" />
+    <Compile Include="Repository\PostEdit\ProjectInvitationRepository.cs" />
+    <Compile Include="Repository\PostEdit\ProjectQuestionRepository.cs" />
+    <Compile Include="Repository\PostEdit\ProjectRepository.cs" />
+    <Compile Include="Repository\PostEdit\UserDomainRoleRepository.cs" />
+    <Compile Include="Repository\PostEdit\UserProjectRoleRepository.cs" />
+    <Compile Include="Repository\RepositoryBase.cs" />
+    <Compile Include="Repository\Session\AcceptSessionRepository.cs" />
+    <Compile Include="Repository\Session\ApiGlobalSessionRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\Exceptions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

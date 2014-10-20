@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>Debug</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="App_Readme/Elmah.txt">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/FeedbackEmail.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/ProjectManagerNotificationEmail.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/ProjectManagerNotificationEmail_de.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/ProjectManagerNotificationEmail_fr.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/SendConfirmationEmail.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/SendConfirmationEmailForPasswordRecovery.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/SendConfirmationEmailForPasswordRecovery_de.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/SendConfirmationEmailForPasswordRecovery_fr.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/SendConfirmationEmail_de.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/SendConfirmationEmail_fr.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/SendInvitationEmail.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/SendInvitationEmail_de.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/SendInvitationEmail_fr.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/TaskCompleted.html">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/TaskCompleted_de.html">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/TaskCompleted_fr.html">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Views/Web.config">
+      <publishTime>08/26/2014 18:12:30</publishTime>
+    </File>
+    <File Include="bin/AcceptApi.dll">
+      <publishTime>10/15/2014 17:01:51</publishTime>
+    </File>
+    <File Include="bin/AcceptApi.pdb">
+      <publishTime>10/15/2014 17:01:51</publishTime>
+    </File>
+    <File Include="bin/AcceptFramework.dll">
+      <publishTime>10/15/2014 17:01:50</publishTime>
+    </File>
+    <File Include="bin/AcceptFramework.pdb">
+      <publishTime>10/15/2014 17:01:50</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>08/27/2014 00:06:47</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.AspNet.dll">
+      <publishTime>08/26/2014 18:12:13</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.Core.dll">
+      <publishTime>08/26/2014 18:12:13</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.OAuth.Consumer.dll">
+      <publishTime>08/26/2014 18:12:13</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.OAuth.dll">
+      <publishTime>08/26/2014 18:12:13</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.OpenId.dll">
+      <publishTime>08/26/2014 18:12:13</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.OpenId.RelyingParty.dll">
+      <publishTime>08/26/2014 18:12:13</publishTime>
+    </File>
+    <File Include="bin/Elmah.dll">
+      <publishTime>01/02/2014 15:43:02</publishTime>
+    </File>
+    <File Include="bin/Elmah.Mvc.dll">
+      <publishTime>01/29/2014 10:39:33</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>01/02/2014 15:43:03</publishTime>
+    </File>
+    <File Include="bin/FluentNHibernate.dll">
+      <publishTime>01/02/2014 15:43:02</publishTime>
+    </File>
+    <File Include="bin/Iesi.Collections.dll">
+      <publishTime>01/02/2014 15:43:02</publishTime>
+    </File>
+    <File Include="bin/LinFu.DynamicProxy.dll">
+      <publishTime>01/02/2014 15:43:02</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.SignalR.Core.dll">
+      <publishTime>09/05/2014 10:04:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.SignalR.SystemWeb.dll">
+      <publishTime>09/05/2014 10:04:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Cors.dll">
+      <publishTime>09/05/2014 12:32:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>09/05/2014 12:32:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>09/05/2014 10:04:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>09/05/2014 10:04:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>08/26/2014 18:12:13</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Mvc.FixedDisplayModes.dll">
+      <publishTime>08/26/2014 18:12:13</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.WebPages.OAuth.dll">
+      <publishTime>08/26/2014 18:12:13</publishTime>
+    </File>
+    <File Include="bin/Mono.Math.dll">
+      <publishTime>08/26/2014 18:12:13</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>08/26/2014 19:06:47</publishTime>
+    </File>
+    <File Include="bin/NHibernate.ByteCode.LinFu.dll">
+      <publishTime>01/02/2014 15:43:02</publishTime>
+    </File>
+    <File Include="bin/NHibernate.dll">
+      <publishTime>01/02/2014 15:43:02</publishTime>
+    </File>
+    <File Include="bin/Org.Mentalis.Security.Cryptography.dll">
+      <publishTime>08/26/2014 18:12:13</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>09/05/2014 10:04:20</publishTime>
+    </File>
+    <File Include="bin/Remotion.Data.Linq.dll">
+      <publishTime>01/02/2014 15:43:03</publishTime>
+    </File>
+    <File Include="bin/System.Web.Abstractions.dll">
+      <publishTime>07/09/2012 01:40:10</publishTime>
+    </File>
+    <File Include="bin/System.Web.Cors.dll">
+      <publishTime>09/05/2014 12:32:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>08/26/2014 18:12:13</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>08/26/2014 18:12:13</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>08/26/2014 18:12:13</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>08/26/2014 18:12:13</publishTime>
+    </File>
+    <File Include="bin/System.Web.Routing.dll">
+      <publishTime>07/09/2012 01:40:10</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>08/26/2014 18:12:13</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>08/26/2014 18:12:13</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>08/26/2014 18:12:13</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>08/27/2014 00:05:28</publishTime>
+    </File>
+    <File Include="bin/WebMatrix.Data.dll">
+      <publishTime>08/26/2014 18:12:13</publishTime>
+    </File>
+    <File Include="bin/WebMatrix.WebData.dll">
+      <publishTime>08/26/2014 18:12:13</publishTime>
+    </File>
+    <File Include="Content/Files/Acrolinx/Acrolinx_de.xml">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Content/Files/Acrolinx/Acrolinx_en.xml">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Content/Files/Acrolinx/Acrolinx_fr.xml">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>09/05/2014 12:33:07</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.5.1.js">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.5.1.min.js">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.6.4.js">
+      <publishTime>09/05/2014 10:04:32</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.6.4.min.js">
+      <publishTime>09/05/2014 10:04:32</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.8.11.js">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.8.11.min.js">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery.signalR-2.1.1.js">
+      <publishTime>09/05/2014 10:04:32</publishTime>
+    </File>
+    <File Include="Scripts/jquery.signalR-2.1.1.min.js">
+      <publishTime>09/05/2014 10:04:32</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.js">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.min.js">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Scripts/MicrosoftAjax.debug.js">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Scripts/MicrosoftAjax.js">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Scripts/MicrosoftMvcAjax.debug.js">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Scripts/MicrosoftMvcAjax.js">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Scripts/MicrosoftMvcValidation.debug.js">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Scripts/MicrosoftMvcValidation.js">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-1.7.js">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-1.7.min.js">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>10/15/2014 17:02:14</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
