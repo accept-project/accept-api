@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile>2014-08-25T12:32:13.9954845+01:00</TimeStampOfAssociatedLegacyPublishXmlFile>
+    <EncryptedPassword />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="App_Readme/Elmah.txt">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/FeedbackEmail.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/ProjectManagerNotificationEmail.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/ProjectManagerNotificationEmail_de.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/ProjectManagerNotificationEmail_fr.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/SendConfirmationEmail.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/SendConfirmationEmailForPasswordRecovery.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/SendConfirmationEmailForPasswordRecovery_de.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/SendConfirmationEmailForPasswordRecovery_fr.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/SendConfirmationEmail_de.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/SendConfirmationEmail_fr.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/SendInvitationEmail.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/SendInvitationEmail_de.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/SendInvitationEmail_fr.htm">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/TaskCompleted.html">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/TaskCompleted_de.html">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Models/EmailTemplates/TaskCompleted_fr.html">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Areas/Api/Views/Web.config">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="bin/AcceptApi.dll">
+      <publishTime>07/29/2014 16:13:27</publishTime>
+    </File>
+    <File Include="bin/AcceptApi.pdb">
+      <publishTime>07/29/2014 16:13:27</publishTime>
+    </File>
+    <File Include="bin/AcceptFramework.dll">
+      <publishTime>07/29/2014 16:13:26</publishTime>
+    </File>
+    <File Include="bin/AcceptFramework.pdb">
+      <publishTime>07/29/2014 16:13:26</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>01/02/2014 15:43:02</publishTime>
+    </File>
+    <File Include="bin/Elmah.dll">
+      <publishTime>01/02/2014 15:43:02</publishTime>
+    </File>
+    <File Include="bin/Elmah.Mvc.dll">
+      <publishTime>01/30/2014 16:42:28</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>01/02/2014 15:43:03</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.xml">
+      <publishTime>01/02/2014 15:43:03</publishTime>
+    </File>
+    <File Include="bin/FluentNHibernate.dll">
+      <publishTime>01/02/2014 15:43:02</publishTime>
+    </File>
+    <File Include="bin/FluentNHibernate.pdb">
+      <publishTime>01/02/2014 15:43:02</publishTime>
+    </File>
+    <File Include="bin/FluentNHibernate.xml">
+      <publishTime>01/02/2014 15:43:02</publishTime>
+    </File>
+    <File Include="bin/Iesi.Collections.dll">
+      <publishTime>01/02/2014 15:43:02</publishTime>
+    </File>
+    <File Include="bin/Iesi.Collections.pdb">
+      <publishTime>01/02/2014 15:43:02</publishTime>
+    </File>
+    <File Include="bin/Iesi.Collections.xml">
+      <publishTime>01/02/2014 15:43:02</publishTime>
+    </File>
+    <File Include="bin/LinFu.DynamicProxy.dll">
+      <publishTime>01/02/2014 15:43:02</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>10/17/2013 13:51:02</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.pdb">
+      <publishTime>10/17/2013 13:51:02</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.xml">
+      <publishTime>10/17/2013 13:51:02</publishTime>
+    </File>
+    <File Include="bin/NHibernate.ByteCode.LinFu.dll">
+      <publishTime>01/02/2014 15:43:02</publishTime>
+    </File>
+    <File Include="bin/NHibernate.ByteCode.LinFu.pdb">
+      <publishTime>01/02/2014 15:43:02</publishTime>
+    </File>
+    <File Include="bin/NHibernate.ByteCode.LinFu.xml">
+      <publishTime>01/02/2014 15:43:02</publishTime>
+    </File>
+    <File Include="bin/NHibernate.dll">
+      <publishTime>01/02/2014 15:43:02</publishTime>
+    </File>
+    <File Include="bin/NHibernate.pdb">
+      <publishTime>01/02/2014 15:43:02</publishTime>
+    </File>
+    <File Include="bin/NHibernate.xml">
+      <publishTime>01/02/2014 15:43:03</publishTime>
+    </File>
+    <File Include="bin/Remotion.Data.Linq.dll">
+      <publishTime>01/02/2014 15:43:03</publishTime>
+    </File>
+    <File Include="bin/System.Web.Abstractions.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Extensions.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>01/05/2011 17:42:16</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.xml">
+      <publishTime>02/09/2011 11:26:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.Routing.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
+    <File Include="Content/Files/Acrolinx/Acrolinx_de.xml">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Content/Files/Acrolinx/Acrolinx_en.xml">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Content/Files/Acrolinx/Acrolinx_fr.xml">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>01/30/2014 16:44:57</publishTime>
+    </File>
+    <File Include="Views/Account/ChangePassword.cshtml">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Views/Account/ChangePasswordSuccess.cshtml">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Views/Account/LogOn.cshtml">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Views/Account/Register.cshtml">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Views/Home/About.cshtml">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Views/Shared/_LogOnPartial.cshtml">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>01/02/2014 15:42:51</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>07/29/2014 16:13:48</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
