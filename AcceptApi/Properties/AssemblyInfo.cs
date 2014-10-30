@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("AcceptApi")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Symantec Corporation")]
 [assembly: AssemblyProduct("AcceptApi")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCopyright("Copyright © Symantec Corporation 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

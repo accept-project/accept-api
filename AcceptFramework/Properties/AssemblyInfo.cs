@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("AcceptFramework")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Symantec Corporation")]
 [assembly: AssemblyProduct("AcceptFramework")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCopyright("Copyright © Symantec Corporation 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
