@@ -7,9 +7,9 @@ accept-api & accept framework
 Getting Started:
 ================
 
--	Before getting started make sure .Net environment is up and running for the .Net Framework 4.5.
--	Make sure you have Visual Studio v+2010 installed.
--	Make sure your NuGet package manager is up to date - https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
+-	Before getting started make sure the .Net environment is up and running for the .Net Framework 4.5.
+-	Make sure Visual Studio 2010 or greater is installed.
+-	Make sure the NuGet package manager is up to date - https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
 -	Unexpected problem? Extra question? Please contact davidluzsilva@gmail.com
  
 1 – Download ACCEPT API repository folder.
