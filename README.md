@@ -5,43 +5,43 @@ Downloading, Compiling and Deployment instructions.
 
 Getting Started
 
-# Before getting started make sure .Net environment is up and running for the .Net Framework 4.5.
-# Make sure you have Visual Studio v+2010 installed.
-# Make sure your NuGet package manager is up to date - https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
-# Unexpected problem? Extra question? Please contact davidluzsilva@gmail.com
+-Before getting started make sure .Net environment is up and running for the .Net Framework 4.5.
+-Make sure you have Visual Studio v+2010 installed.
+-Make sure your NuGet package manager is up to date - https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
+-Unexpected problem? Extra question? Please contact davidluzsilva@gmail.com
  
 1 – Download ACCEPT API repository folder.
 2 – Open file “AcceptApi.csproj” with Visual Studio.
 3 – Click “File”, click “Add”, click “Existing Project…”, double click “AcceptFramework” folder, choose file “AcceptFramework.csproj”, click “Open”.
 4 – Click “File”, click “Save AcceptApi.sln”, choose a directory path, click “Save”.
 
-# At this stage the ACCEPT Framework dependency is automatically sorted and the API Solution file is created.
-# Now the next step is to sort all ACCEPT Framework dependencies and compile the Framework.
+-At this stage the ACCEPT Framework dependency is automatically sorted and the API Solution file is created.
+-Now the next step is to sort all ACCEPT Framework dependencies and compile the Framework.
 
 Solving the ACCEPT Framework Project Dependencies
 
 1 –  Click “Tools”, click “Library Package Manager”, click “Package Manager Console”.
 
-# The Console Tab should be displayed somewhere in the solution.
-# Next step is to proper configure Nuget to enable automatic package restore. 
+-The Console Tab should be displayed somewhere in the solution.
+-Next step is to proper configure Nuget to enable automatic package restore. 
 
 2 – Within the package manager console Tab, type the following command: “Install-Package NuGetPowerTools”.
 
-# If success the following message should be prompted: “Successfully installed 'NuGetPowerTools 0.29'.”.
+-If success the following message should be prompted: “Successfully installed 'NuGetPowerTools 0.29'.”.
 
 3 – Within the package manager console Tab, type the following command: “Enable-PackageRestore”.
 
-# The following messages should be prompt:
-# “Enabled package restore for AcceptFramework”.
-# “Enabled package restore for AcceptApi”.
+-The following messages should be prompt:
+-“Enabled package restore for AcceptFramework”.
+-“Enabled package restore for AcceptApi”.
 
 4 – Right click  on the “Solution ‘AcceptApi’” file(in the top of the Solution Explorer), and click “Enable NuGet Package Restore”.
 
-# More detailed info on step 4 here: http://docs.nuget.org/docs/Workflows/Using-NuGet-without-committing-packages
+-More detailed info on step 4 here: http://docs.nuget.org/docs/Workflows/Using-NuGet-without-committing-packages
 
 5 – Within the package manager console Tab, type the following command: “Install packages.config”, when the command completes, right click in the “AcceptFramework” file(within the Solution Explorer), and click compile.
 
-# The compilation in step 5 will fail, that is expected for now.
+-The compilation in step 5 will fail, that is expected for now.
 
 6 – Within the package manager console Tab, type the following command: “Install-Package FluentNHibernate”.
 
@@ -49,7 +49,7 @@ Solving the ACCEPT Framework Project Dependencies
 
 8 – Within the package manager console Tab, type the following command: “Install-Package LinFu.DynamicProxy.OfficialRelease”.
 
-# Now that all packages are downloaded lets manually add some of the recently downloaded dependencies that are not automatically added.
+-Now that all packages are downloaded lets manually add some of the recently downloaded dependencies that are not automatically added.
 
 9 – Within the Solution Explorer find the “AcceptFramework” project and right click References, then click “Add Reference…”
 
@@ -92,8 +92,8 @@ At this stage all libraries references should be solved, remains the logging lib
 1 – Within the Solution Explorer find the “AcceptApi” project and right click References, then click “Add Reference…”
 2 – Within the Solution Explorer find the “AcceptApi” project and right click it, then click “Build”. 
 
-# The project should successfully compile. 
-# If the compilation fails, means not all References are sorted, step 9 should be replicated for this project too.
+-The project should successfully compile. 
+-If the compilation fails, means not all References are sorted, step 9 should be replicated for this project too.
 
 Compiling the Solution
 
