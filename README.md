@@ -74,7 +74,8 @@ On the dialog let’s click brows, find the packages main folder and add the fol
 
 10 – There are at least two libraries that need to be downloaded in separate:
 
-	#For “RemotionDataLink” library:
+	The “RemotionDataLink” library:
+	===============================
 
 -	Go to http://relinq.codeplex.com/releases/view/38673.
 -	Download “RemotionRelinq_1.13.41.0.zip”
@@ -82,7 +83,8 @@ On the dialog let’s click brows, find the packages main folder and add the fol
 -	Back to Visual Studio, apply the same logic that in step 9, find the just unzipped folder(“RemotionRelinq_1.13.41.0”).
 -	Select the file “Remotion.Data.Linq.dll” (within  “…\net-3.5\bin\release” folder) and click “Add”.
 
-	#For “NHibernate.ByteCode.LinFu”
+	The “NHibernate.ByteCode.LinFu” library:
+	========================================
 
 -	Go to https://github.com/sibartlett/NHibernate.ByteCode.
 -	Click the link button “Download ZIP” to download the solution zip file.
