@@ -20,7 +20,7 @@ Getting Started:
 
 4 – Click “File”, click “Save AcceptApi.sln”, choose a directory path, click “Save”.
 
--	At this stage the ACCEPT Framework dependency is automatically sorted and the API Solution file is created.
+-	At this stage the ACCEPT Framework dependency is automatically resolved and the API Solution file is created.
 -	Now the next step is to sort all ACCEPT Framework dependencies and compile the Framework.
 
 Solving the ACCEPT Framework Project Dependencies:
@@ -94,18 +94,18 @@ The “NHibernate.ByteCode.LinFu” library:
 Solving the ACCEPT API Project Dependencies:
 ============================================
 
-At this stage all libraries references should be solved, remains the logging library “Elmah”:
+At this stage all libraries references should be resolved, remains the logging library “Elmah”:
 
 1 – Within the Solution Explorer find the “AcceptApi” project and right click References, then click “Add Reference…”
 2 – Within the Solution Explorer find the “AcceptApi” project and right click it, then click “Build”. 
 
 -	The project should successfully compile. 
--	If the compilation fails, means not all References are sorted, step 9 should be replicated for this project too.
+-	If the compilation fails, means not all References are resolved, step 9 should be replicated for this project too.
 
 Compiling the Solution:
 =======================
 
-If all dependencies and respective references are solved, the solution can now be successfully compiled.
+If all dependencies and respective references are resolved, the solution can now be successfully compiled.
 
 #How to compile:
 Within the Solution Explorer very top find the solution label: “Solution ‘AcceptApi’” and right click it, then click “Build”.
