@@ -1,4 +1,4 @@
-accept-api & accept framework
+ACCEPT API & ACCEPT Framework
 =============================
 
 #	Downloading, Compiling and Deployment instructions. 
