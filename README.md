@@ -5,10 +5,10 @@ Downloading, Compiling and Deployment instructions.
 
 Getting Started
 
--Before getting started make sure .Net environment is up and running for the .Net Framework 4.5.
--Make sure you have Visual Studio v+2010 installed.
--Make sure your NuGet package manager is up to date - https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
--Unexpected problem? Extra question? Please contact davidluzsilva@gmail.com
+-	Before getting started make sure .Net environment is up and running for the .Net Framework 4.5.
+-	Make sure you have Visual Studio v+2010 installed.
+-	Make sure your NuGet package manager is up to date - https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
+-	Unexpected problem? Extra question? Please contact davidluzsilva@gmail.com
  
 1 – Download ACCEPT API repository folder.
 2 – Open file “AcceptApi.csproj” with Visual Studio.
