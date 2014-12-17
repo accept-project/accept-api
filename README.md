@@ -41,11 +41,11 @@ Solving the ACCEPT Framework Project Dependencies:
 -	“Enabled package restore for AcceptFramework”.
 -	“Enabled package restore for AcceptApi”.
 
-4 – Right click  on the “Solution ‘AcceptApi’” file(in the top of the Solution Explorer), and click “Enable NuGet Package Restore”.
+4 – Right click over “Solution ‘AcceptApi’”(in the top of the Solution Explorer), and click “Enable NuGet Package Restore”.
 
 -	More detailed info on step 4 here: http://docs.nuget.org/docs/Workflows/Using-NuGet-without-committing-packages
 
-5 – Within the package manager console Tab, type the following command: “Install packages.config”, when the command completes, right click in the “AcceptFramework” file(within the Solution Explorer), and click compile.
+5 – Within the package manager console Tab, type the following command: “Install packages.config”, when the command completes, right click in the “AcceptFramework”(within the Solution Explorer), and click compile.
 
 -	The compilation in step 5 will fail, that is expected for now.
 
