@@ -102,6 +102,22 @@ At this stage all libraries references should be resolved, remains the logging l
 -	The project should successfully compile. 
 -	If the compilation fails, means not all References are resolved, step 9 should be replicated for this project too.
 
+Solving JavaScript Dependencies:
+================================
+
+Since the ACCEPT API is using Microsoft Signal R, some JavaScript dependencies need to be resolved.
+And with the steps taken previously most of them are already resolved, however, the following need to be NuGet resolved:
+
+-	Within the package manager console Tab, type the following command: “Install-Package MicrosoftAjax”.	
+-	Within the package manager console Tab, type the following command: “Install-Package MicrosoftMvcAjax.Mvc5”. 
+
+Now that all JavaScript libraries are resolved, it is needed to reference them manually within the Solution.
+To do so, within the Solution Explorer, under the "AcceptApi" project label, expand folder "Scrips" and check for missing the references identified with a "currently missing" icon.
+
+The same file name can found within the "...\packages" folder. 
+Finally, copy and paste all missing files within the "Scripts" folder, when finishing, all "currently missing" icons should be gone.
+
+
 Compiling the Solution:
 =======================
 
