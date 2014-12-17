@@ -1,7 +1,7 @@
 ACCEPT API & ACCEPT Framework
 =============================
 
-#	Downloading, Compiling and Deployment instructions. 
+#Deployment instructions. 
 
 
 Getting Started:
