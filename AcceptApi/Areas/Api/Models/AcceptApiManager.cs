@@ -1535,13 +1535,32 @@ namespace AcceptApi.Areas.Api.Models
                         }break;
                     }
 
-                    ProjectManagerService.AddUserToProject(username,AcceptApiCoreUtils.AcceptEnglishToFrenchPostEditDemoProjectToken);
-                    ProjectManagerService.AddUserToProject(username,AcceptApiCoreUtils.AcceptFrenchToEnglishPostEditDemoProjectToken);
-                    ProjectManagerService.AddUserToProject(username,AcceptApiCoreUtils.AcceptEnglishToGermanPostEditDemoProjectToken);
+                    #region DS:12-01-2015
+                    //protecting from adding a new user to a non-existing post-edit demo project.
 
-                    ProjectManagerService.AddUserToProject(username, AcceptApiCoreUtils.AcceptEnglishToFrenchCollaborativePostEditDemoProjectToken);
-                    ProjectManagerService.AddUserToProject(username, AcceptApiCoreUtils.AcceptFrenchToEnglishCollaborativePostEditDemoProjectToken);
-                    ProjectManagerService.AddUserToProject(username, AcceptApiCoreUtils.AcceptEnglishToGermanCollaborativePostEditDemoProjectToken);  
+                    List<Project> demoProjects = null;
+                    try
+                    {
+                        demoProjects = ProjectManagerService.GetDemoProjectsByAdminTokens(new string[] {AcceptApiCoreUtils.AcceptFrenchToEnglishPostEditDemoProjectToken, 
+                                              AcceptApiCoreUtils.AcceptEnglishToFrenchPostEditDemoProjectToken,
+                                              AcceptApiCoreUtils.AcceptEnglishToGermanPostEditDemoProjectToken,
+                                              AcceptApiCoreUtils.AcceptFrenchToEnglishCollaborativePostEditDemoProjectToken,
+                                              AcceptApiCoreUtils.AcceptEnglishToFrenchCollaborativePostEditDemoProjectToken,
+                                              AcceptApiCoreUtils.AcceptEnglishToGermanCollaborativePostEditDemoProjectToken});
+                    }
+                    catch { demoProjects = new List<Project>(); }
+
+                    if (demoProjects.Count > 0)
+                    {
+                        ProjectManagerService.AddUserToProject(username, AcceptApiCoreUtils.AcceptEnglishToFrenchPostEditDemoProjectToken);
+                        ProjectManagerService.AddUserToProject(username, AcceptApiCoreUtils.AcceptFrenchToEnglishPostEditDemoProjectToken);
+                        ProjectManagerService.AddUserToProject(username, AcceptApiCoreUtils.AcceptEnglishToGermanPostEditDemoProjectToken);
+
+                        ProjectManagerService.AddUserToProject(username, AcceptApiCoreUtils.AcceptEnglishToFrenchCollaborativePostEditDemoProjectToken);
+                        ProjectManagerService.AddUserToProject(username, AcceptApiCoreUtils.AcceptFrenchToEnglishCollaborativePostEditDemoProjectToken);
+                        ProjectManagerService.AddUserToProject(username, AcceptApiCoreUtils.AcceptEnglishToGermanCollaborativePostEditDemoProjectToken);
+                    }
+                    #endregion 
 
 
 
