@@ -26,22 +26,22 @@ ACCEPT API & ACCEPT Framework
 
 1. Click “Tools”, click “Library Package Manager”, click “Package Manager Console”.
 
--	The Console Tab should be displayed somewhere in the solution.
--	Next step is to proper configure Nuget to enable automatic package restore. 
+	-The Console Tab should be displayed somewhere in the solution.
+	-Next step is to proper configure Nuget to enable automatic package restore. 
 
 2. Within the package manager console Tab, type the following command: “Install-Package NuGetPowerTools”.
 
--	If success the following message should be prompted: “Successfully installed 'NuGetPowerTools 0.29'.”.
+	-If success the following message should be prompted: “Successfully installed 'NuGetPowerTools 0.29'.”.
 
 3. Within the package manager console Tab, type the following command: “Enable-PackageRestore”.
 
--	The following messages should be prompt:
--	“Enabled package restore for AcceptFramework”.
--	“Enabled package restore for AcceptApi”.
+	-The following messages should be prompt:
+	-“Enabled package restore for AcceptFramework”.
+	-“Enabled package restore for AcceptApi”.
 
 4. Right click over “Solution ‘AcceptApi’”(in the top of the Solution Explorer), and click “Enable NuGet Package Restore”.
 
--	More detailed info on step 4 here: http://docs.nuget.org/docs/Workflows/Using-NuGet-without-committing-packages
+	-More detailed info on step 4 here: http://docs.nuget.org/docs/Workflows/Using-NuGet-without-committing-packages
 
 5. Within the package manager console Tab, type the following command: “Install packages.config”, when the command completes, right click in the “AcceptFramework”(within the Solution Explorer), and click compile.
 
