@@ -74,7 +74,7 @@ On the dialog let’s click brows, find the packages main folder and add the fol
 
 10 There are at least two libraries that need to be downloaded in separate.
 
-	* The “RemotionDataLink” library:
+The “RemotionDataLink” library:
 
 	-Go to http://relinq.codeplex.com/releases/view/38673.
 	-Download “RemotionRelinq_1.13.41.0.zip”
