@@ -1,17 +1,16 @@
 ACCEPT API & ACCEPT Framework
 =============================
 
-#Deployment instructions. 
+#Configuration and Deployment instructions. 
 
-
-Getting Started:
-================
+##Getting Started:
 
 -	Before getting started make sure the .Net environment is up and running for the .Net Framework 4.5.
 -	Make sure Visual Studio 2010 or greater is installed.
 -	Make sure the NuGet package manager is up to date - https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
 
- 
+##First Steps:
+
 1– Download ACCEPT API repository folder.
 
 2– Open file “AcceptApi.csproj” with Visual Studio.
@@ -23,8 +22,7 @@ Getting Started:
 -	At this stage the ACCEPT Framework dependency is automatically resolved and the API Solution file is created.
 -	Now the next step is to sort all ACCEPT Framework dependencies and compile the Framework.
 
-Solving the ACCEPT Framework Project Dependencies:
-==================================================
+##Solving the ACCEPT Framework Project Dependencies:
 
 1– Click “Tools”, click “Library Package Manager”, click “Package Manager Console”.
 
@@ -91,8 +89,7 @@ The “NHibernate.ByteCode.LinFu” library:
 -	Back in the ACCEPT project Visual Studio solution, apply the same logic that in step 9, find the just copied file “NHibernate.ByteCode.LinFu.DLL” and click “Add”.
 
 
-Solving the ACCEPT API Project Dependencies:
-============================================
+##Solving the ACCEPT API Project Dependencies:
 
 At this stage all libraries references should be resolved, remains the logging library “Elmah”:
 
@@ -102,8 +99,7 @@ At this stage all libraries references should be resolved, remains the logging l
 -	The project should successfully compile. 
 -	If the compilation fails, means not all References are resolved, step 9 should be replicated for this project too.
 
-Solving JavaScript Dependencies:
-================================
+##Solving JavaScript Dependencies:
 
 Since the ACCEPT API is using Microsoft Signal R, some JavaScript dependencies need to be resolved.
 And with the steps taken previously most of them are already resolved, however, the following need to be NuGet resolved:
@@ -118,15 +114,13 @@ The same file name can found within the "...\packages" folder.
 Finally, copy and paste all missing files within the "Scripts" folder, when finishing, all "currently missing" icons should be gone.
 
 
-Compiling the Solution:
-=======================
+#Compiling the Solution:
 
 If all dependencies and respective references are resolved, the solution can now be successfully compiled.
 
-#How to compile:
+##How to compile:
 Within the Solution Explorer very top find the solution label: “Solution ‘AcceptApi’” and right click it, then click “Build”.
 
-Deploying the Solution:
-=======================
+#Deploying the Solution:
 
 There are more than one way to deploy .Net projects: http://www.asp.net/mvc/overview/deployment
