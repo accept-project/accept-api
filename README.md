@@ -113,7 +113,6 @@ To do so, within the Solution Explorer, under the "AcceptApi" project label, exp
 The same file name can found within the "...\packages" folder. 
 Finally, copy and paste all missing files within the "Scripts" folder, when finishing, all "currently missing" icons should be gone.
 
-
 #Compiling the Solution:
 
 If all dependencies and respective references are resolved, the solution can now be successfully compiled.
@@ -124,3 +123,13 @@ Within the Solution Explorer very top find the solution label: “Solution ‘Ac
 #Deploying the Solution:
 
 There are more than one way to deploy .Net projects: http://www.asp.net/mvc/overview/deployment
+
+#Initialization Process(Important!):
+
+1. When proper deployed, the API initialization method needs to be called in order to:
+* Create default user Roles in DB.
+* Create default Languages in DB.
+
+The method can be found under the Admin Controller:
+http://[ACCEPT_API_URL]/api/v1/Admin/InitialiseAccept
+
