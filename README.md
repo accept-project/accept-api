@@ -70,7 +70,9 @@ On the dialog let’s click brows, find the packages main folder and add the fol
 	-Newtonsoft.Json.dll (the one within  “packages\Newtonsoft.Json.5.0.8\lib\net45” folder)
 	-LinFu.DynamicProxy.dll (the one within “packages\LinFu.DynamicProxy.OfficialRelease.1.0.5\lib\net” folder)
 
-10. There are at least two libraries that need to be downloaded in separate.
+
+
+10 There are at least two libraries that need to be downloaded in separate.
 
 	* The “RemotionDataLink” library:
 
