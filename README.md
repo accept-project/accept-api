@@ -127,8 +127,8 @@ There are more than one way to deploy .Net projects: http://www.asp.net/mvc/over
 #Initialization Process(Important!):
 
 1. When proper deployed, the API initialization method needs to be called in order to:
-* Create default user Roles in DB.
-* Create default Languages in DB.
+*  Create default user Roles in DB.
+*  Create default Languages in DB.
 
 The method can be found under the Admin Controller:
 http://[ACCEPT_API_URL]/api/v1/Admin/InitialiseAccept
