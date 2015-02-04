@@ -136,3 +136,4 @@ There are more than one way to deploy .Net projects: http://www.asp.net/mvc/over
 The method can be found under the Admin Controller:
 http://[ACCEPT_API_URL]/api/v1/Admin/InitialiseAccept
 
+	2. Other very important step is t0
