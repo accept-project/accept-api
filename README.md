@@ -136,6 +136,18 @@ There are more than one way to deploy .Net projects: http://www.asp.net/mvc/over
 The method can be found under the Admin Controller:
 http://[ACCEPT_API_URL]/api/v1/Admin/InitialiseAccept
 
+If the init process was sucessfull then the following response should be returned:
+
+```json
+{
+    "ResponseObject": "The ACCEPT system was successfully initialized.",
+    "ResponseStatus": "OK",
+    "TimeStamp": "/Date(1423133466466)/",
+    "AcceptSessionCode": "",
+    "GlobalSessionId": ""
+}
+```
+
 2. Other very important step is to make sure a valid e-mail Server is configured - for example: when registering a new user in the ACCEPT Portal a confirmation email is sent to the email account provided as user name.
 
 To do so, check the [Configuration](https://github.com/accept-project/accept-api/blob/master/AcceptApi/Web.config) file "mailSettings" section:
