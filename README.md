@@ -5,7 +5,7 @@ ACCEPT API & ACCEPT Framework
 
 If you use the ACCEPT API or Framework in your research work, please cite one of the following:
 
-  * Pre-Edit: Seretan, V., Roturier, J., Silva, D. & Bouillon, P. 2014. "The ACCEPT Portal: An Online Framework for the Pre-editing and Post-editing of User-Generated Content". In Proceedings of the Workshop on Humans and Computer-Assisted Translation, pp. 66-71, Gothenburg, Sweden, April. ([Bib file](https://raw.githubusercontent.com/accept-api/accept-portal/master/cite.bib))
+  * Pre-Edit: Seretan, V., Roturier, J., Silva, D. & Bouillon, P. 2014. "The ACCEPT Portal: An Online Framework for the Pre-editing and Post-editing of User-Generated Content". In Proceedings of the Workshop on Humans and Computer-Assisted Translation, pp. 66-71, Gothenburg, Sweden, April. ([Bib file](https://raw.githubusercontent.com/accept-portal/master/cite.bib))
   * Post-Edit: Roturier, J., Mitchell, L., Silva, D. (2013). The ACCEPT post-editing environment: A flexible and customisable online tool to perform and analyse machine translation post-editing. In Proceedings of MT Summit XIV Workshop on Post-editing Technology and Practice, pp. 119-128, Nice, France, September. ([Bib file](https://raw.githubusercontent.com/accept-project/accept-post-edit/master/cite.bib))
   * Evaluation: Mitchell, L., Roturier, J., Silva, D. (2014). Using the ACCEPT framework to conduct an online community-based translation evaluation study. In Proceedings of the Seventeenth Annual Conference of the European Association for Machine Translation (EAMT), June 2014, Dubrovnik, Croatia. ([Bib file](https://raw.githubusercontent.com/accept-project/accept-evaluation/master/cite.bib))
 
