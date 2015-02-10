@@ -14,14 +14,14 @@ namespace AcceptFramework.Domain.Common
         public virtual string UILanguage { get; set; }
         public virtual string ConfirmationCode { get; set; }
         public virtual int NativeLanguageID { get; set; }
-        public virtual ICollection<Role> Roles { get; private set; }    
+        public virtual ICollection<Role> Roles { get; set; }    
         public virtual string PasswordRecoveryCode { get; set; }
         public virtual bool IsDeleted { get; set; }
-        public virtual ICollection<ApiKeys> UserApiKeys { get; private set; }       
-        public virtual ICollection<Project> UserProjects { get; private set; }
-        public virtual ICollection<Role> UserRolesInProjects { get; private set; }
-        public virtual ICollection<Domain> UserDomains { get; private set; }
-        public virtual ICollection<Role> UserRolesInDomains { get; private set; }
+        public virtual ICollection<ApiKeys> UserApiKeys { get; set; }       
+        public virtual ICollection<Project> UserProjects { get; set; }
+        public virtual ICollection<Role> UserRolesInProjects { get; set; }
+        public virtual ICollection<Domain> UserDomains { get; set; }
+        public virtual ICollection<Role> UserRolesInDomains { get; set; }
         public virtual string SecretKeyCode { get; set; }
         public virtual DateTime? CreationDate { get; set; }
 

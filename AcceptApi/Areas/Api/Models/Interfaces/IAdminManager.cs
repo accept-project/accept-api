@@ -63,7 +63,7 @@ namespace AcceptApi.Areas.Api.Models.Interfaces
 
         CoreApiResponse GetUsersInProject(string token, string role);
 
-        CoreApiResponse InitAceept();
+        CoreApiResponse InitAccept();
 
     }
 }

@@ -17,14 +17,12 @@ namespace AcceptFramework.Mapping.Common
             Map(e => e.UserName).Length(320);
             Map(e => e.Password).Length(250);
             Map(e => e.UILanguage).Length(5);
-            Map(e => e.NativeLanguageID).Length(250);
-            Map(e => e.ConfirmationCode).Length(25);
+            Map(e => e.NativeLanguageID);
+            Map(e => e.ConfirmationCode).Length(250);
             Map(e => e.PasswordRecoveryCode);
             Map(e => e.IsDeleted);
-
-            Map(e => e.SecretKeyCode).Length(150);
+            Map(e => e.SecretKeyCode).Length(250);
             Map(e => e.CreationDate);
-
 
             HasManyToMany(e => e.Roles).
                 Not.LazyLoad().

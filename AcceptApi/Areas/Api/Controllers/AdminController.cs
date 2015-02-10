@@ -300,7 +300,7 @@ namespace AcceptApi.Areas.Api.Controllers
         [HttpGet]
         public JsonResult InitialiseAccept()
         {
-            var model = AdminManager.InitAceept();
+            var model = AdminManager.InitAccept();
             return Json(model, JsonRequestBehavior.AllowGet);
         }       
 

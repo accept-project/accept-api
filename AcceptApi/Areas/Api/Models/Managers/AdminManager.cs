@@ -692,7 +692,7 @@ namespace AcceptApi.Areas.Api.Models.Managers
         #endregion
 
         #region Init
-        public CoreApiResponse InitAceept()
+        public CoreApiResponse InitAccept()
         {
             try
             {
@@ -703,7 +703,7 @@ namespace AcceptApi.Areas.Api.Models.Managers
             }
             catch (Exception e)
             {
-                return new CoreApiException(e.Message, "InitAceept");        
+                return new CoreApiException(e.Message, "InitAccept");        
             }
 
           

@@ -12,7 +12,7 @@ namespace AcceptFramework.Domain.PostEditAudit
         public virtual string PhaseName { get; set; }
         public virtual string Source { get; set; }
         public virtual string Target { get; set; }
-        public virtual ICollection<AlternativeTranslation> AlternativeTranslations {get; private set;}
+        public virtual ICollection<AlternativeTranslation> AlternativeTranslations {get; set;}
 
         public TranslationUnit()
         {

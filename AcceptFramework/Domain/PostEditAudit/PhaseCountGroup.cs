@@ -9,7 +9,7 @@ namespace AcceptFramework.Domain.PostEditAudit
     {
         public virtual string Name { get; set; }
         public virtual DateTime DateAdded { get; set; }
-        public virtual ICollection<PhaseCount> PhaseCounts { get; private set; }
+        public virtual ICollection<PhaseCount> PhaseCounts { get; set; }
 
 
         public PhaseCountGroup()

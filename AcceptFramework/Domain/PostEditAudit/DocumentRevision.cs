@@ -14,8 +14,8 @@ namespace AcceptFramework.Domain.PostEditAudit
         public virtual DateTime DateLastUpdate { get; set; }
         public virtual DateTime CompleteDate { get; set; }
         public virtual string RevisionHash { get; set; }
-        public virtual ICollection<TranslationRevision> TranslationUnits { get; private set; }        
-        public virtual ICollection<QuestionReply> QuestionsReplied { get; private set; }
+        public virtual ICollection<TranslationRevision> TranslationUnits { get; set; }        
+        public virtual ICollection<QuestionReply> QuestionsReplied { get; set; }
 
         public virtual bool IsLocked { get; set; }
         public virtual string LockedBy { get; set; }

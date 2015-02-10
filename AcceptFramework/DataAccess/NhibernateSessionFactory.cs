@@ -28,15 +28,15 @@ namespace AcceptFramework.DataAccess
             baseConfig.Configure();
 
             //having one mapping class path is enough.
-            var config = Fluently.Configure(baseConfig).Mappings(m => m.FluentMappings.AddFromAssemblyOf<UserMap>());
-
+            var config = Fluently.Configure(baseConfig).Mappings(m => m.FluentMappings.AddFromAssemblyOf<UserMap>()).Mappings(m => m.FluentMappings.AddFromAssemblyOf<RoleMap>()).ExposeConfiguration(cfg => cfg.Properties.Add("use_outer_join", "true"));
+			
             try
             {
-                if (System.Configuration.ConfigurationManager.AppSettings["DbShemaDrop"].CompareTo("1") == 0)
+                if (System.Configuration.ConfigurationManager.AppSettings["DbSchemaDrop"].CompareTo("1") == 0)
                     config.ExposeConfiguration(cfg => new SchemaExport(cfg).Drop(false, true));
-                if (System.Configuration.ConfigurationManager.AppSettings["DbShemaCreate"].CompareTo("1") == 0)
+                if (System.Configuration.ConfigurationManager.AppSettings["DbSchemaCreate"].CompareTo("1") == 0)
                     config.ExposeConfiguration(cfg => new SchemaExport(cfg).Create(false, true));
-                if (System.Configuration.ConfigurationManager.AppSettings["DbShemaUpdate"].CompareTo("1") == 0)
+                if (System.Configuration.ConfigurationManager.AppSettings["DbSchemaUpdate"].CompareTo("1") == 0)
                     config.ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true));
             }
             catch (Exception e)

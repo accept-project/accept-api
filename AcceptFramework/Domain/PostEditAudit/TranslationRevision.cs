@@ -15,9 +15,9 @@ namespace AcceptFramework.Domain.PostEditAudit
 
         public virtual DateTime DateCreated { get; set; }
         public virtual DateTime LastUpdate { get; set; }
-        public virtual ICollection<Phase> Phases { get; private set; }
-        public virtual ICollection<AlternativeTranslation> AlternativeTranslations { get; private set; }
-        public virtual ICollection<ThinkPhase> ThinkPhases { get; private set; }
+        public virtual ICollection<Phase> Phases { get; set; }
+        public virtual ICollection<AlternativeTranslation> AlternativeTranslations { get; set; }
+        public virtual ICollection<ThinkPhase> ThinkPhases { get; set; }
 
         public TranslationRevision()
         {
