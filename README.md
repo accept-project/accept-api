@@ -46,9 +46,7 @@ If you use the ACCEPT API or Framework in your research work, please cite one of
 	-	“Enabled package restore for AcceptFramework”.
 	-	“Enabled package restore for AcceptApi”.
 
-Note: If the command “Enable-PackageRestore” fails, a "Restore" button link for package download is also available next to the Package Manager (PM) Console.
-
--Now that all packages are downloaded lets manually add some of the recently downloaded dependencies since they are not 	automatically referenced within the solution.
+Note: If the command “Enable-PackageRestore” fails, a "Restore" button link for package download is also available next to the Package Manager (PM) Console. Now that all packages are downloaded lets manually add some of the recently downloaded dependencies since they are not automatically referenced within the solution.
 
 4.	Within the Solution Explorer find the “AcceptFramework” project and right click References, then click “Add Reference…”.
 
