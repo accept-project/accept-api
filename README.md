@@ -53,8 +53,8 @@ Note: If the command “Enable-PackageRestore” fails, a "Restore" button link 
 
 - Now that all packages are downloaded lets manually add some of the recently downloaded dependencies since they are not 	automatically referenced within the solution.
 
-4. Within the Solution Explorer find the “AcceptFramework” project and right click References, then click “Add Reference…”.
 
+4 . Within the Solution Explorer find the “AcceptFramework” project and right click References, then click “Add Reference…”.
 
 On the dialog let’s click brows, find the packages main folder and add the following .DLL files:
 
