@@ -42,13 +42,11 @@ If you use the ACCEPT API or Framework in your research work, please cite one of
 
 -	If success the following message should be prompted: “Successfully installed 'NuGetPowerTools ...'.”.
 
-3.Within the package manager console Tab, type the following command: “Enable-PackageRestore”.
-		
-The following messages should be prompt:
--	“Enabled package restore for AcceptFramework”.
--	“Enabled package restore for AcceptApi”.
+3.Right click over “Solution ‘AcceptApi’”(in the top of the Solution Explorer), and click “Enable NuGet Package Restore”.
 
-#####Note: If the command “Enable-PackageRestore” fails, a "Restore" button link for package download is also available next to the Package Manager (PM) Console. 
+4.Back to the package manager console, type the following command: “Install packages.config”. If this command somehow fails(there were reports of such behaviour) then:
+
+-	Right click over "AcceptFramework"(in the top of the Solution Explorer), then click "Manage BuGet Packages". Whitin the pop-up window, in the very top of it a yellow bar requests permission to restore the NuGet packages. Clicking the "Restore" button initiates the restore process.
 
 Now that all packages are downloaded lets manually add some of the recently downloaded dependencies since they are not automatically referenced within the solution:
 
