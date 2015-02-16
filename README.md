@@ -136,6 +136,6 @@ To do so, check the [Configuration](https://github.com/accept-project/accept-api
     </mailSettings>
 ```
 
-##Contact
-Issues with the ACCEPT API can posted [here](https://github.com/accept-project/accept-api/issues).
-Or you can contact me directly via davidluzsilva@gmail.com
+##Support Contact
+Any issue/question on the ACCEPT API can posted [here](https://github.com/accept-project/accept-api/issues).
+Or by contacting me directly via davidluzsilva@gmail.com
