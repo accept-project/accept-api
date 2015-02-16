@@ -137,5 +137,5 @@ To do so, check the [Configuration](https://github.com/accept-project/accept-api
 ```
 
 ##Support Contact
-Any issue/question on the ACCEPT API can posted [here](https://github.com/accept-project/accept-api/issues).
+Any issue/question on the ACCEPT API can be posted [here](https://github.com/accept-project/accept-api/issues).
 Or contact me directly via davidluzsilva@gmail.com
