@@ -33,19 +33,18 @@ If you use the ACCEPT API or Framework in your research work, please cite one of
 
 ##Solving the ACCEPT Framework Project Dependencies:
 
-1. Click “Tools”, click “Library Package Manager”, click “Package Manager Console”.
+1.	Click “Tools”, click “Library Package Manager”, click “Package Manager Console”.
 
 -	The Console Tab should be displayed somewhere in the solution.
 	
 -	Next step is to proper configure Nuget to enable automatic package restore. 
 
 
-2. Within the package manager console Tab, make sure the Default project is set to "AcceptFramework". If not select it from the drop down list. When selected, type the following command: “Install-Package NuGetPowerTools”.
+2.	Within the package manager console Tab, make sure the Default project is set to "AcceptFramework". If not select it from the drop down list. When selected, type the following command: “Install-Package NuGetPowerTools”.
 
 -	If success the following message should be prompted: “Successfully installed 'NuGetPowerTools 0.29'.”.
 
-
-3. Within the package manager console Tab, type the following command: “Enable-PackageRestore”.
+3.	Within the package manager console Tab, type the following command: “Enable-PackageRestore”.
 	-	The following messages should be prompt:
 	-	“Enabled package restore for AcceptFramework”.
 	-	“Enabled package restore for AcceptApi”.
