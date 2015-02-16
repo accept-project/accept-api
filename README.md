@@ -54,18 +54,10 @@ Within the Solution Explorer find the “AcceptFramework” project and right cl
 
 On the dialog, click browse, find the packages main folder(default folder should be located: ~/AcceptApi/packages) and resolve the following .DLL files:
 
-	-Antlr3.Runtime.dll
-	-DotNetOpenAuth.AspNet.dll (the one within “net40-full” folder)
-	-DotNetOpenAuth.Core.dll (the one within “net40-full” folder)
-	-DotNetOpenAuth.OAuth.Consumer.dll (the one within “net40-full” folder)
-	-DotNetOpenAuth.OAuth.dll (the one within “net40-full” folder)
-	-DotNetOpenAuth.OpenId.dll (the one within “net40-full” folder)
-	-DotNetOpenAuth.OpenId.RelyingParty.dll (the one within “net40-full” folder)
-	-Microsoft.Web.Mvc.FixedDisplayModes.dll
-	-Newtonsoft.Json.dll (the one within  “packages\Newtonsoft.Json.5.0.8\lib\net45” folder)
-	-LinFu.DynamicProxy.dll (the one within “packages\LinFu.DynamicProxy.OfficialRelease.1.0.5\lib\net” folder)
+	-FluentNhibernate(within "packages\FluentNHibernate..." folder)
+	-NHibernate(within "packages\NHibernate...\lib\net40" folder)
 
-#####Note: Repeat the logic above for any missing libraries.
+#####Note: Repeat the logic above for all missing libraries.
 
 ##Solving the ACCEPT API Project Dependencies:
 
