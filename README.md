@@ -35,8 +35,9 @@ If you use the ACCEPT API or Framework in your research work, please cite one of
 
 1. Click “Tools”, click “Library Package Manager”, click “Package Manager Console”.
 
-	-The Console Tab should be displayed somewhere in the solution.
-	-Next step is to proper configure Nuget to enable automatic package restore. 
+-	The Console Tab should be displayed somewhere in the solution.
+	
+-	Next step is to proper configure Nuget to enable automatic package restore. 
 
 2. Within the package manager console Tab, type the following command: “Install-Package NuGetPowerTools”.
 
