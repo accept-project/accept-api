@@ -25,7 +25,7 @@ If you use the ACCEPT API or Framework in your research work, please cite one of
 
 3. Click “File”, click “Add”, click “Existing Project…”, double click “AcceptFramework” folder, choose file "AcceptFramework.csproj", click “Open”.
 
-4. Click “File”, click “Save AcceptApi.sln”, choose a directory path, click “Save”.
+4. Click “File”, click “Save All”, choose a directory path(usually .Net solutions are kept in the root folder), click “Save”.
 
 -	At this stage the ACCEPT Framework dependency is automatically resolved and the API Solution file is created.
 -	Now the next step is to sort all ACCEPT Framework dependencies and compile the Framework.
