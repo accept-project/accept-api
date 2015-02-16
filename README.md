@@ -28,6 +28,7 @@ If you use the ACCEPT API or Framework in your research work, please cite one of
 4. Click “File”, click “Save All”, choose a directory path(usually .Net solutions are kept in the root folder of the project), click “Save”.
 
 -	At this stage the ACCEPT Framework dependency is automatically resolved and the API Solution file is created.
+
 -	Now the next step is to sort all ACCEPT Framework dependencies and compile the Framework.
 
 ##Solving the ACCEPT Framework Project Dependencies:
