@@ -39,9 +39,11 @@ If you use the ACCEPT API or Framework in your research work, please cite one of
 	
 -	Next step is to proper configure Nuget to enable automatic package restore. 
 
-2. Within the package manager console Tab, type the following command: “Install-Package NuGetPowerTools”.
 
-	-If success the following message should be prompted: “Successfully installed 'NuGetPowerTools 0.29'.”.
+2. Within the package manager console Tab, make sure the Default project is set to "AcceptFramework". If not select it from the drop down list. When selected, type the following command: “Install-Package NuGetPowerTools”.
+
+-	If success the following message should be prompted: “Successfully installed 'NuGetPowerTools 0.29'.”.
+
 
 3. Within the package manager console Tab, type the following command: “Enable-PackageRestore”.
 	-	The following messages should be prompt:
