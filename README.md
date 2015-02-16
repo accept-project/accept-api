@@ -61,9 +61,10 @@ On the dialog, click browse, find the packages main folder(default folder should
 
 ##Solving the ACCEPT API Project Dependencies:
 
-At this stage all libraries references should be resolved, remains the logging library “Elmah”:
+1.	At this stage most of the libraries references should be resolved, if not, repeat the process above:
 
-1. Within the Solution Explorer find the “AcceptApi” project and right click References, then click “Add Reference…”
+-	Within the Solution Explorer find the “AcceptApi” project and right click References, then click “Add Reference…”, click browse to search for libraries or just click the ones recently added for the AcceptFramework.
+
 2. Within the Solution Explorer find the “AcceptApi” project and right click it, then click “Build”. 
 
 	-The project should successfully compile. 
