@@ -61,22 +61,22 @@ On the dialog, click browse, find the packages main folder(default folder should
 
 ##Solving the ACCEPT API Project Dependencies:
 
-1.	At this stage most of the libraries references should be resolved, if not, repeat the process above:
+1.At this stage most of the libraries references should be resolved, if not, repeat the process above:
 
 -	Within the Solution Explorer find the “AcceptApi” project and right click References, then click “Add Reference…”, click browse to search for libraries or just click the ones recently added for the AcceptFramework.
 
-2. Within the Solution Explorer find the “AcceptApi” project and right click it, then click “Build”. 
+2.Within the Solution Explorer find the “AcceptApi” project and right click it, then click “Build”. 
 
-	-The project should successfully compile. 
-	-If the compilation fails, means not all References are resolved, step 9 should be replicated for this project too.
+-	The project should successfully compile. 
 
 ##Solving JavaScript Dependencies:
 
 Since the ACCEPT API is using Microsoft Signal R, some JavaScript dependencies need to be resolved.
 And with the steps taken previously most of them are already resolved, however, the following need to be NuGet resolved:
 
-	-Within the package manager console Tab, type the following command: “Install-Package MicrosoftAjax”.	
-	-Within the package manager console Tab, type the following command: “Install-Package MicrosoftMvcAjax.Mvc5”. 
+-	Within the package manager console Tab, type the following command: “Install-Package MicrosoftAjax”.	
+
+-	Within the package manager console Tab, type the following command: “Install-Package MicrosoftMvcAjax.Mvc5”. 
 
 Now that all JavaScript libraries are resolved, it is needed to reference them manually within the Solution.
 To do so, within the Solution Explorer, under the "AcceptApi" project label, expand folder "Scrips" and check for missing the references identified with a "currently missing" icon.
