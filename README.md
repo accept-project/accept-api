@@ -48,11 +48,11 @@ If you use the ACCEPT API or Framework in your research work, please cite one of
 
 -	Right click over "AcceptFramework"(in the top of the Solution Explorer), then click "Manage NuGet Packages". Whitin the pop-up window, in the very top of it a yellow bar requests permission to restore the NuGet packages. Clicking the "Restore" button initiates the restore process.
 
-Now that all packages are downloaded lets manually add some of the recently downloaded dependencies since they are not automatically referenced within the solution:
+Now that all packages are downloaded(default folder should be located: ~/AcceptApi/packages) it is possible to manually add/resolve the missing dependencies since they are not automatically referenced within the solution:
 
 Within the Solution Explorer find the “AcceptFramework” project and right click References, then click “Add Reference…”.
 
-On the dialog let’s click brows, find the packages main folder and add the following .DLL files:
+On the dialog, click browse, find the packages main folder(default folder should be located: ~/AcceptApi/packages) and resolve the following .DLL files:
 
 	-Antlr3.Runtime.dll
 	-DotNetOpenAuth.AspNet.dll (the one within “net40-full” folder)
