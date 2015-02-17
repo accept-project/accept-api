@@ -40,6 +40,24 @@ namespace AcceptFramework.Repository.Evaluation
             return new RepositoryBase<EvaluationSimpleScore>().Update(item);
         }
 
+        #region EvaluationInternal
+
+        public static IEnumerable<EvaluationSimpleScore> GetProjectScoresFiltered(int Id, string filter)
+        {
+            return new RepositoryBase<EvaluationSimpleScore>().Select(a => a.ProjectID == Id && (a.Var1 == filter || a.Var2 == filter || a.Var3 == filter || a.Var4 == filter || a.Var5 == filter || a.Var6 == filter || a.Var7 == filter || a.Var8 == filter || a.Var9 == filter || a.Var10 == filter));
+        }
+
+        public static IEnumerable<string> GetUserHistoryOnInternalEvaluationProject(int Id, string user)
+        {
+            return new RepositoryBase<EvaluationSimpleScore>().Select(a => a.ProjectID == Id && a.Var7 == user).Select(t => t.Var6).ToList<string>();
+        }
+
+        public static IEnumerable<EvaluationSimpleScore> GetInternalScores(int Id, string user)
+        {
+            return new RepositoryBase<EvaluationSimpleScore>().Select(a => a.ProjectID == Id && a.Var7 == user);
+        }
+
+        #endregion
 
     }
 }

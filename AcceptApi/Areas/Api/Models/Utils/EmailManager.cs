@@ -11,7 +11,6 @@ namespace AcceptApi.Areas.Api.Models.Utils
 {
     public class EmailManager
     {
-
         public static void SentTestEmail(string emailFrom, string emailTo)
         {
             try
@@ -22,7 +21,7 @@ namespace AcceptApi.Areas.Api.Models.Utils
                     {
                         message.Subject = "Accept Portal - TEST EMAIL";
                         message.Body = "Awesome stuff it actually works! :)";
-                        message.IsBodyHtml = true;                                                
+                        message.IsBodyHtml = true;
                         client.EnableSsl = true;
                         client.Send(message);
                     };
@@ -34,9 +33,9 @@ namespace AcceptApi.Areas.Api.Models.Utils
                 throw (e);
             }
         }
-       
+
         public static void SendConfirmationEmail(string emailFrom, string userName, string confirmationCode, string verificationUrl)
-        {                       
+        {
             string verifyUrl = verificationUrl + confirmationCode;
             string templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["SendConfirmationEmailTemplate"]);
             string text = File.ReadAllText(templateFile);
@@ -46,8 +45,8 @@ namespace AcceptApi.Areas.Api.Models.Utils
                 using (var message = new MailMessage(emailFrom, userName))
                 {
                     message.Subject = "Accept Portal - Please Verify your Account";
-                    message.Body = text;                  
-                    message.IsBodyHtml = true;                    
+                    message.Body = text;
+                    message.IsBodyHtml = true;
                     client.EnableSsl = true;
                     client.Send(message);
                 };
@@ -69,21 +68,21 @@ namespace AcceptApi.Areas.Api.Models.Utils
                 using (var message = new MailMessage(emailFrom, userName))
                 {
                     message.Subject = "Accept Portal - Password Recovery";
-                    message.Body = text;                    
-                    message.IsBodyHtml = true;                    
+                    message.Body = text;
+                    message.IsBodyHtml = true;
                     client.EnableSsl = true;
                     client.Send(message);
                 };
             };
 
             #region Notify
-            SendNotificationEmail(emailFrom,userName,"Password Recovery","requested for a password recovery.");
+            SendNotificationEmail(emailFrom, userName, "Password Recovery", "requested for a password recovery.");
             #endregion
         }
 
-        public static void SendNotificationEmail(string emailFrom, string userName,string subject, string bodyMessage)
+        public static void SendNotificationEmail(string emailFrom, string userName, string subject, string bodyMessage)
         {
-            
+
             using (var client = new SmtpClient())
             {
                 using (var message = new MailMessage(emailFrom, "davidluzsilva@gmail.com"))
@@ -91,7 +90,7 @@ namespace AcceptApi.Areas.Api.Models.Utils
                     message.Subject = "Accept Portal Notification - " + subject;
                     message.Body = "<html><head><meta content=\"text/html; charset=utf-8\" /></head><body>" +
                         "<p>The user: " + userName + "</p>" + "<p>" + bodyMessage + "</p>"
-                        +"</body></html>";
+                        + "</body></html>";
 
                     message.IsBodyHtml = true;
                     //message.Bcc.Add(new MailAddress("someone@someplace.com"));                                              
@@ -99,82 +98,84 @@ namespace AcceptApi.Areas.Api.Models.Utils
                     client.Send(message);
                 };
             };
-        
+
         }
 
         public static void SendInvitationEmail(string emailFrom, string emailTo, string projectName, string verifyUrl, string language, string extraProjectOwnerNote, string projectOwner)
         {
 
-            string templateFile;templateFile = string.Empty;
-            string text; text = string.Empty;                       
+            string templateFile; templateFile = string.Empty;
+            string text; text = string.Empty;
             using (var client = new SmtpClient())
             {
                 using (var message = new MailMessage(emailFrom, emailTo))
-                {                  
+                {
                     switch (language)
                     {
-                        case "fr": 
-                        {
-                            templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["SendProjectInvitationEmailTemplate_fr"]);
-                            text = File.ReadAllText(templateFile);
-                            text = text.Replace("%ProjectName%", projectName);
-                            text = text.Replace("%Link%", verifyUrl);
-                            message.Subject = "Invitation pour le Portail ACCEPT";                                                  
-                            if (extraProjectOwnerNote.Length > 0)
-                            {                               
-                                text = text.Replace("%MESSAGENOTE%", "La personne qui s’occupe du suivi de ce projet voudrait vous donner le complément d’information suivant:");
-                                text = text.Replace("%MESSAGE%", extraProjectOwnerNote);
-                            }
-                            else
+                        case "fr":
                             {
-                                text = text.Replace("%MESSAGENOTE%", "");
-                                text = text.Replace("%MESSAGE%", "");
-                            }
-                            message.Body = text;
-                        
-                        } break;
-                        case "de": {
-                            templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["SendProjectInvitationEmailTemplate_de"]);
-                            text = File.ReadAllText(templateFile);
-                            text = text.Replace("%ProjectName%", projectName);
-                            text = text.Replace("%Link%", verifyUrl);
-                            message.Subject = "Einladung zum ACCEPT-Portal";                           
-                            if (extraProjectOwnerNote.Length > 0)
-                            {                             
-                                text = text.Replace("%MESSAGENOTE%", "Wenn Sie dieses Nachbearbeitungsprojekt abgeschlossen haben, werden Sie auf Anfrage Zugang zu diesen Daten haben. Der Projektmanager möchte zusätzlich folgende Informationen mit Ihnen teilen:");
-                                text = text.Replace("%MESSAGE%", extraProjectOwnerNote);
-                            }
-                            else
+                                templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["SendProjectInvitationEmailTemplate_fr"]);
+                                text = File.ReadAllText(templateFile);
+                                text = text.Replace("%ProjectName%", projectName);
+                                text = text.Replace("%Link%", verifyUrl);
+                                message.Subject = "Invitation pour le Portail ACCEPT";
+                                if (extraProjectOwnerNote.Length > 0)
+                                {
+                                    text = text.Replace("%MESSAGENOTE%", "La personne qui s’occupe du suivi de ce projet voudrait vous donner le complément d’information suivant:");
+                                    text = text.Replace("%MESSAGE%", extraProjectOwnerNote);
+                                }
+                                else
+                                {
+                                    text = text.Replace("%MESSAGENOTE%", "");
+                                    text = text.Replace("%MESSAGE%", "");
+                                }
+                                message.Body = text;
+
+                            } break;
+                        case "de":
                             {
-                                text = text.Replace("%MESSAGENOTE%", "");
-                                text = text.Replace("%MESSAGE%", "");                            
-                            }
-                            message.Body = text;            
-                                                
-                        } break;
-                        default: {
-                        templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["SendProjectInvitationEmailTemplate"]);
-                        text = File.ReadAllText(templateFile);
-                        text = text.Replace("%ProjectName%", projectName);
-                        text = text.Replace("%Link%", verifyUrl);                                                    
-                        message.Subject = "ACCEPT Portal Invitation";                      
-                        if (extraProjectOwnerNote.Length > 0)
-                        {
-                            text = text.Replace("%MESSAGENOTE%", "The person in charge of this project would like to share the additional information with you:");
-                            text = text.Replace("%MESSAGE%", extraProjectOwnerNote);
-                        }
-                        else
-                        {
-                            text = text.Replace("%MESSAGENOTE%", "");
-                            text = text.Replace("%MESSAGE%", "");
-                        }
-                   
-                        message.Body = text;
-                        } break;                                        
+                                templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["SendProjectInvitationEmailTemplate_de"]);
+                                text = File.ReadAllText(templateFile);
+                                text = text.Replace("%ProjectName%", projectName);
+                                text = text.Replace("%Link%", verifyUrl);
+                                message.Subject = "Einladung zum ACCEPT-Portal";
+                                if (extraProjectOwnerNote.Length > 0)
+                                {
+                                    text = text.Replace("%MESSAGENOTE%", "Wenn Sie dieses Nachbearbeitungsprojekt abgeschlossen haben, werden Sie auf Anfrage Zugang zu diesen Daten haben. Der Projektmanager möchte zusätzlich folgende Informationen mit Ihnen teilen:");
+                                    text = text.Replace("%MESSAGE%", extraProjectOwnerNote);
+                                }
+                                else
+                                {
+                                    text = text.Replace("%MESSAGENOTE%", "");
+                                    text = text.Replace("%MESSAGE%", "");
+                                }
+                                message.Body = text;
+
+                            } break;
+                        default:
+                            {
+                                templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["SendProjectInvitationEmailTemplate"]);
+                                text = File.ReadAllText(templateFile);
+                                text = text.Replace("%ProjectName%", projectName);
+                                text = text.Replace("%Link%", verifyUrl);
+                                message.Subject = "ACCEPT Portal Invitation";
+                                if (extraProjectOwnerNote.Length > 0)
+                                {
+                                    text = text.Replace("%MESSAGENOTE%", "The person in charge of this project would like to share the additional information with you:");
+                                    text = text.Replace("%MESSAGE%", extraProjectOwnerNote);
+                                }
+                                else
+                                {
+                                    text = text.Replace("%MESSAGENOTE%", "");
+                                    text = text.Replace("%MESSAGE%", "");
+                                }
+
+                                message.Body = text;
+                            } break;
                     }
-                   
+
                     message.IsBodyHtml = true;
-            
+
                     message.CC.Add(new MailAddress(projectOwner));
                     message.Bcc.Add(new MailAddress("davidluzsilva@gmail.com"));
 
@@ -194,30 +195,30 @@ namespace AcceptApi.Areas.Api.Models.Utils
             using (var client = new SmtpClient())
             {
                 using (var message = new MailMessage(emailFrom, emailTo))
-                {                                                                       
+                {
                     switch (languageCode)
                     {
-                        case "fr": 
-                        {
-                            message.Subject = "Accept Portal Notification - Project Invitation Report";
-                            templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["ProjectManagerReportEmailTemplate_fr"]);
-                            text = File.ReadAllText(templateFile);
-                        
-                        }break;
-                        case "de": 
-                        {
-                            message.Subject = "ACCEPT-Portal-Benachrichtigung: Bericht über Projekteinladungen";
-                            templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["ProjectManagerReportEmailTemplate_de"]);
-                            text = File.ReadAllText(templateFile);                        
+                        case "fr":
+                            {
+                                message.Subject = "Accept Portal Notification - Project Invitation Report";
+                                templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["ProjectManagerReportEmailTemplate_fr"]);
+                                text = File.ReadAllText(templateFile);
 
-                        }break;
+                            } break;
+                        case "de":
+                            {
+                                message.Subject = "ACCEPT-Portal-Benachrichtigung: Bericht über Projekteinladungen";
+                                templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["ProjectManagerReportEmailTemplate_de"]);
+                                text = File.ReadAllText(templateFile);
+
+                            } break;
                         default:
-                        {
-                            message.Subject = "Accept Portal Notification - Project Invitation Report";
-                            templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["ProjectManagerReportEmailTemplate"]);
-                            text = File.ReadAllText(templateFile);
-                        
-                        }break;                    
+                            {
+                                message.Subject = "Accept Portal Notification - Project Invitation Report";
+                                templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["ProjectManagerReportEmailTemplate"]);
+                                text = File.ReadAllText(templateFile);
+
+                            } break;
                     }
 
                     text = text.Replace("%ProjectName%", projectName);
@@ -227,9 +228,9 @@ namespace AcceptApi.Areas.Api.Models.Utils
 
                     foreach (string emailSentAddress in emailsSent)
                         sentAddresses = sentAddresses + "<p>" + emailSentAddress + "<p/>"; // message.Body = message.Body + "<p>" + emailSentAddress + "<p/>";
-                                     
+
                     if (emailsFailed.Count > 0)
-                    {                       
+                    {
                         foreach (string emailNotSentAddress in emailsFailed)
                             notSentAddresses = notSentAddresses + "<p>" + emailNotSentAddress + "<p/>"; // message.Body = message.Body + "<p>" + emailNotSentAddress + "<p/>";
                     }
@@ -245,11 +246,11 @@ namespace AcceptApi.Areas.Api.Models.Utils
             };
 
         }
-      
+
         #region Localization for Portal Registration and Password Recovey
-       
+
         public static void SendConfirmationEmailFrench(string emailFrom, string userName, string confirmationCode, string verificationUrl)
-        {          
+        {
             string verifyUrl = verificationUrl + confirmationCode;
 
             string templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["SendConfirmationEmailTemplate_fr"]);
@@ -261,8 +262,8 @@ namespace AcceptApi.Areas.Api.Models.Utils
                 using (var message = new MailMessage(emailFrom, userName))
                 {
                     message.Subject = " Portal ACCEPT – Veuillez verifier votre compte.";
-                    message.Body = text;                  
-                    message.IsBodyHtml = true;                    
+                    message.Body = text;
+                    message.IsBodyHtml = true;
                     client.EnableSsl = true;
                     client.Send(message);
                 };
@@ -287,7 +288,7 @@ namespace AcceptApi.Areas.Api.Models.Utils
                 using (var message = new MailMessage(emailFrom, userName))
                 {
                     message.Subject = "ACCEPT-Portal – Bitte bestätigen Sie Ihr Konto";
-                    message.Body = text;                   
+                    message.Body = text;
                     message.IsBodyHtml = true;
                     client.EnableSsl = true;
                     client.Send(message);
@@ -341,7 +342,7 @@ namespace AcceptApi.Areas.Api.Models.Utils
                 using (var message = new MailMessage(emailFrom, userName))
                 {
                     message.Subject = "Portal ACCEPT – Récupération du mot de passe";
-                    message.Body = text;                   
+                    message.Body = text;
                     message.IsBodyHtml = true;
                     //message.Bcc.Add("davidluzsilva@gmail.com");
                     client.EnableSsl = true;
@@ -364,27 +365,28 @@ namespace AcceptApi.Areas.Api.Models.Utils
 
             switch (projectLanguage)
             {
-                case "French": 
-                {
-                    templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["TaskCompletedEmailTemplate_fr"]);
-                    text = File.ReadAllText(templateFile);
-                    subject = "Notification du portail ACCEPT - Tâche terminée";                
-                }break;
-                case "German": { 
-                    templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["TaskCompletedEmailTemplate_de"]);
-                    text = File.ReadAllText(templateFile);
-                    subject = "ACCEPT-Portal-Benachrichtigung: Aufgabe abgeschlossen";                               
-                }break;
+                case "French":
+                    {
+                        templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["TaskCompletedEmailTemplate_fr"]);
+                        text = File.ReadAllText(templateFile);
+                        subject = "Notification du portail ACCEPT - Tâche terminée";
+                    } break;
+                case "German":
+                    {
+                        templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["TaskCompletedEmailTemplate_de"]);
+                        text = File.ReadAllText(templateFile);
+                        subject = "ACCEPT-Portal-Benachrichtigung: Aufgabe abgeschlossen";
+                    } break;
                 default:
-                {
-                    templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["TaskCompletedEmailTemplate"]);
-                    text = File.ReadAllText(templateFile);
-                    subject = "Accept Portal Notification - Task Completed";
-                
-                } break;
-            
+                    {
+                        templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["TaskCompletedEmailTemplate"]);
+                        text = File.ReadAllText(templateFile);
+                        subject = "Accept Portal Notification - Task Completed";
+
+                    } break;
+
             }
-            
+
             text = text.Replace("%ProjectName%", projectName);
             text = text.Replace("%TaskOwner%", taskOwner);
             text = text.Replace("%LinkToTaskDetails%", linkToTaskDetails);
@@ -430,8 +432,8 @@ namespace AcceptApi.Areas.Api.Models.Utils
             text = text.Replace("%EMAIL%", email);
             text = text.Replace("%LINK%", link);
             text = text.Replace("%MESSAGEBODY%", feedbackMessage);
-            
-            
+
+
             using (var client = new SmtpClient())
             {
                 foreach (string recipient in to)
@@ -445,16 +447,152 @@ namespace AcceptApi.Areas.Api.Models.Utils
                         client.Send(message);
                     };
                 }
-            };         
+            };
         }
 
+        #region EvaluationInternal
 
+        public static void SendEvaluationProjectInvitationEmail(string emailFrom, string emailTo, string projectName, string verifyUrl, string language, string extraProjectOwnerNote, string projectOwner)
+        {
 
+            string templateFile; templateFile = string.Empty;
+            string text; text = string.Empty;
+            using (var client = new SmtpClient())
+            {
+                using (var message = new MailMessage(emailFrom, emailTo))
+                {
+                    switch (language)
+                    {
+                        case "fr":
+                            {
+                                templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["EvaluationSendProjectInvitationEmailTemplate_fr"]);
+                                text = File.ReadAllText(templateFile);
+                                text = text.Replace("%ProjectName%", projectName);
+                                text = text.Replace("%Link%", verifyUrl);
+                                message.Subject = "Invitation pour le Portail ACCEPT";
+                                if (extraProjectOwnerNote.Length > 0)
+                                {
+                                    text = text.Replace("%MESSAGENOTE%", "La personne qui s’occupe du suivi de ce projet voudrait vous donner le complément d’information suivant:");
+                                    text = text.Replace("%MESSAGE%", extraProjectOwnerNote);
+                                }
+                                else
+                                {
+                                    text = text.Replace("%MESSAGENOTE%", "");
+                                    text = text.Replace("%MESSAGE%", "");
+                                }
+                                message.Body = text;
 
+                            } break;
+                        case "de":
+                            {
+                                templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["EvaluationSendProjectInvitationEmailTemplate_de"]);
+                                text = File.ReadAllText(templateFile);
+                                text = text.Replace("%ProjectName%", projectName);
+                                text = text.Replace("%Link%", verifyUrl);
+                                message.Subject = "Einladung zum ACCEPT-Portal";
+                                if (extraProjectOwnerNote.Length > 0)
+                                {
+                                    text = text.Replace("%MESSAGENOTE%", "Wenn Sie dieses Nachbearbeitungsprojekt abgeschlossen haben, werden Sie auf Anfrage Zugang zu diesen Daten haben. Der Projektmanager möchte zusätzlich folgende Informationen mit Ihnen teilen:");
+                                    text = text.Replace("%MESSAGE%", extraProjectOwnerNote);
+                                }
+                                else
+                                {
+                                    text = text.Replace("%MESSAGENOTE%", "");
+                                    text = text.Replace("%MESSAGE%", "");
+                                }
+                                message.Body = text;
 
+                            } break;
+                        default:
+                            {
+                                templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["EvaluationSendProjectInvitationEmailTemplate"]);
+                                text = File.ReadAllText(templateFile);
+                                text = text.Replace("%ProjectName%", projectName);
+                                text = text.Replace("%Link%", verifyUrl);
+                                message.Subject = "ACCEPT Portal Invitation";
+                                if (extraProjectOwnerNote.Length > 0)
+                                {
+                                    text = text.Replace("%MESSAGENOTE%", "The person in charge of this project would like to share the additional information with you:");
+                                    text = text.Replace("%MESSAGE%", extraProjectOwnerNote);
+                                }
+                                else
+                                {
+                                    text = text.Replace("%MESSAGENOTE%", "");
+                                    text = text.Replace("%MESSAGE%", "");
+                                }
 
+                                message.Body = text;
+                            } break;
+                    }
 
+                    message.IsBodyHtml = true;
+                    message.CC.Add(new MailAddress(projectOwner));
+                    client.EnableSsl = true;
+                    client.Send(message);
+                };
+            };
 
+        }
 
+        public static void SendNotificationEmailToEvaluationProjectOwnerForExistingUser(string projectName, List<string> emailsFailed, List<string> emailsSent, string emailTo, string emailFrom, string languageCode)
+        {
+
+            string templateFile; templateFile = string.Empty;
+            string text; text = string.Empty;
+            using (var client = new SmtpClient())
+            {
+                using (var message = new MailMessage(emailFrom, emailTo))
+                {
+                    switch (languageCode)
+                    {
+                        case "fr":
+                            {
+                                message.Subject = "Accept Portal Notification - Evaluation Project Invitation Report";
+                                templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["EvaluationProjectManagerReportEmailTemplate_fr"]);
+                                text = File.ReadAllText(templateFile);
+
+                            } break;
+                        case "de":
+                            {
+                                message.Subject = "ACCEPT-Portal-Benachrichtigung: Auswertung Bericht über Projekteinladungen";
+                                templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["EvaluationProjectManagerReportEmailTemplate_de"]);
+                                text = File.ReadAllText(templateFile);
+
+                            } break;
+                        default:
+                            {
+                                message.Subject = "Accept Portal Notification - Evaluation Project Invitation Report";
+                                templateFile = System.Web.HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["EvaluationProjectManagerReportEmailTemplate"]);
+                                text = File.ReadAllText(templateFile);
+
+                            } break;
+                    }
+
+                    text = text.Replace("%ProjectName%", projectName);
+                    text = text.Replace("%TOTALRECIPIENTS%", (emailsFailed.Count + emailsSent.Count).ToString());
+                    string sentAddresses = string.Empty;
+                    string notSentAddresses = string.Empty;
+
+                    foreach (string emailSentAddress in emailsSent)
+                        sentAddresses = sentAddresses + "<p>" + emailSentAddress + "<p/>";
+
+                    if (emailsFailed.Count > 0)
+                    {
+                        foreach (string emailNotSentAddress in emailsFailed)
+                            notSentAddresses = notSentAddresses + "<p>" + emailNotSentAddress + "<p/>";
+                    }
+
+                    text = text.Replace("%SENTEMAILS%", sentAddresses);
+                    text = text.Replace("%NOTSENTEMAILS%", notSentAddresses);
+                    message.Body = text;
+                    message.IsBodyHtml = true;
+                    client.EnableSsl = true;
+                    client.Send(message);
+                };
+            };
+
+        }
+
+        #endregion
     }
 }

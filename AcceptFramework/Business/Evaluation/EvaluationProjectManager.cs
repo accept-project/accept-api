@@ -12,6 +12,7 @@ using AcceptFramework.Repository.Evaluation;
 using AcceptPortal.Models.Evaluation;
 using System.Web;
 using EP.Business;
+using AcceptFramework.Domain.Common;
 
 namespace AcceptFramework.Business.Evaluation
 {
@@ -24,7 +25,8 @@ namespace AcceptFramework.Business.Evaluation
         private EvaluationSourceSegment sourceSegment;
         private EvaluationReferenceSegment referenceSegment;
 
-        public bool GenerateLanguages() {
+        public bool GenerateLanguages()
+        {
 
             if (EvaluationLanguagesRepository.GetAll().ToList().Count == 0)
             {
@@ -50,7 +52,7 @@ namespace AcceptFramework.Business.Evaluation
         public EvaluationSimpleScoreResponse SimpleScore(int Id, string key, string answerId, string domain, string var1, string var2, string var3, string var4, string var5, string var6, string var7, string var8, string var9, string var10)
         {
             int AnswerId = 0;
-            var score = new EvaluationSimpleScore();           
+            var score = new EvaluationSimpleScore();
             var project = generateEvaluationProjectToken(EvaluationProjectRepository.GetProject(Id));
 
             if (project == null)
@@ -76,7 +78,7 @@ namespace AcceptFramework.Business.Evaluation
             {
                 throw new ArgumentException("Invalid Answer ID", "AnswerId"); ;
             }
-            
+
             //look for answer ID in the list of questions.
             foreach (var q in project.Questions)
             {
@@ -159,8 +161,8 @@ namespace AcceptFramework.Business.Evaluation
         }
 
         public EvaluationQuestion CreateQuestion(int projectId, string name)
-        {            
-            var project = generateEvaluationProjectToken(EvaluationProjectRepository.GetProject(projectId));                      
+        {
+            var project = generateEvaluationProjectToken(EvaluationProjectRepository.GetProject(projectId));
             var question = new EvaluationQuestion(name);
             question = EvaluationQuestionsRepository.Insert(question);
             project.Questions.Add(question);
@@ -202,11 +204,11 @@ namespace AcceptFramework.Business.Evaluation
             questionItem = EvaluationQuestionItemsRepository.Update(questionItem);
             return questionItem;
         }
- 
+
         public EvaluationQuestionItemAnswer CreateQuestionItemAnswer(int projectId, int qid, string answer, string value)
         {
             var qitem = EvaluationQuestionItemsRepository.Get(qid);
-            var itemAnswer = new EvaluationQuestionItemAnswer {Name = answer, Value = value};
+            var itemAnswer = new EvaluationQuestionItemAnswer { Name = answer, Value = value };
             itemAnswer = EvaluationQuestionItemAnswersRepository.Insert(itemAnswer);
             qitem.Answers.Add(itemAnswer);
             qitem = EvaluationQuestionItemsRepository.Update(qitem);
@@ -222,7 +224,8 @@ namespace AcceptFramework.Business.Evaluation
             return itemAnswer;
         }
 
-        public EvaluationProject CreateProject(string name, string description, string org, string domain, string requestor)
+        #region InternalEvaluation
+        public EvaluationProject CreateProject(string name, string description, string org, string domain, string requestor, int type, int postEditProjectId, int evaluationMethod, int duplicationLogic, bool includeOwnerRevision, string emailBody)
         {
             var project = new EvaluationProject();
             var user = UserRepository.GetUserByUserName(requestor);
@@ -239,10 +242,37 @@ namespace AcceptFramework.Business.Evaluation
             project.CreationDate = DateTime.UtcNow;
             project = EvaluationProjectRepository.Insert(project);
 
+
+            project.Type = type == 1 ? project.Type = EvaluationType.Embedded : project.Type = EvaluationType.External;
+            project.PostEditProjectReferenceId = project.Type == EvaluationType.Embedded ? project.PostEditProjectReferenceId = postEditProjectId : project.PostEditProjectReferenceId = -1;
+            project.IncludePostEditProjectOwner = includeOwnerRevision;
+            switch (duplicationLogic)
+            {
+                case 1: { project.PostEditProjectDuplicationLogic = EvaluationProject.InternalProjectAvoidDuplicates.YesTaskLevel; } break;
+                case 2: { project.PostEditProjectDuplicationLogic = EvaluationProject.InternalProjectAvoidDuplicates.YesProjectLevel; } break;
+                default:
+                    {
+                        project.PostEditProjectDuplicationLogic = EvaluationProject.InternalProjectAvoidDuplicates.No;
+                    } break;
+            }
+            switch (evaluationMethod)
+            {
+                case 1: { project.PostEditProjectEvaluationMethod = EvaluationProject.InternalProjectEvaluationMethod.EvaluateOriginalOnly; } break;
+                case 2: { project.PostEditProjectEvaluationMethod = EvaluationProject.InternalProjectEvaluationMethod.EvaluateOriginalAndAllRevisions; } break;
+                case 3: { project.PostEditProjectEvaluationMethod = EvaluationProject.InternalProjectEvaluationMethod.EvaluateOnlyRevisions; } break;
+                default:
+                    {
+                        project.PostEditProjectEvaluationMethod = EvaluationProject.InternalProjectEvaluationMethod.NotSet;
+                    } break;
+            }
+
+            project.EmailBodyMessage = emailBody;
+
+
             return project;
         }
 
-        public EvaluationProject UpdateProject(int projectId, string name, string description, string org, string apiKey, string domain)
+        public EvaluationProject UpdateProject(int projectId, string name, string description, string org, string apiKey, string domain, int type, int postEditProjectId, int evaluationMethod, int duplicationLogic, bool includeOwnerRevision, string emailBody)
         {
             var project = EvaluationProjectRepository.GetProject(projectId);
 
@@ -257,13 +287,41 @@ namespace AcceptFramework.Business.Evaluation
             project.ApiKey = apiKey;
             project.Domain = domain;
             project = generateEvaluationProjectToken(project);
+            project.PostEditProjectReferenceId = project.Type == EvaluationType.Embedded ? project.PostEditProjectReferenceId = postEditProjectId : project.PostEditProjectReferenceId = -1;
+            project.IncludePostEditProjectOwner = includeOwnerRevision;
+            switch (duplicationLogic)
+            {
+                case 1: { project.PostEditProjectDuplicationLogic = EvaluationProject.InternalProjectAvoidDuplicates.YesTaskLevel; } break;
+                case 2: { project.PostEditProjectDuplicationLogic = EvaluationProject.InternalProjectAvoidDuplicates.YesProjectLevel; } break;
+
+                default:
+                    {
+                        project.PostEditProjectDuplicationLogic = EvaluationProject.InternalProjectAvoidDuplicates.No;
+                    } break;
+            }
+
+            switch (evaluationMethod)
+            {
+                case 1: { project.PostEditProjectEvaluationMethod = EvaluationProject.InternalProjectEvaluationMethod.EvaluateOriginalOnly; } break;
+                case 2: { project.PostEditProjectEvaluationMethod = EvaluationProject.InternalProjectEvaluationMethod.EvaluateOriginalAndAllRevisions; } break;
+                case 3: { project.PostEditProjectEvaluationMethod = EvaluationProject.InternalProjectEvaluationMethod.EvaluateOnlyRevisions; } break;
+                default:
+                    {
+                        project.PostEditProjectEvaluationMethod = EvaluationProject.InternalProjectEvaluationMethod.NotSet;
+                    } break;
+            }
+
+            project.EmailBodyMessage = emailBody;
+
             project = EvaluationProjectRepository.UpdateProject(project);
             return project;
         }
+        #endregion
+
 
         public List<EvaluationDocumentSimple> Documents(int id)
         {
-            var x = new string[0];           
+            var x = new string[0];
             var docs = new EvaluationDocumentsRepository().SelectByProject(id);
             var list = new List<EvaluationDocumentSimple>();
 
@@ -319,7 +377,7 @@ namespace AcceptFramework.Business.Evaluation
                 paragraph = new EvaluationSourceParagraph();
                 string categoryName = categoryAttr.Value;
                 string authorType = authorTypeAttr.Value;
-                string originalName = originalTypeAttr.Value;                
+                string originalName = originalTypeAttr.Value;
                 paragraph.Category = new EvaluationCategoryRepository().SelectOrCreate(categoryName);
                 paragraph.AuthorType = new EvaluationAuthorTypeRepository().SelectOrCreate(authorType);
                 paragraph.Original = originalName;
@@ -384,14 +442,14 @@ namespace AcceptFramework.Business.Evaluation
                 {
                     //throw new DocumentValidationException(DocumentErrorType.SourceNotDefined);
                 }
-               
+
                 ValidateLanguagePairProvider(target, source);
 
                 string sourceString = "";
                 if (source != null) sourceString = source.Value;
 
                 sourceSegment = new EvaluationSourceSegment { SourceString = sourceString };
-                
+
                 if (target != null)
                 {
                     string targetString = target.Value;
@@ -424,7 +482,7 @@ namespace AcceptFramework.Business.Evaluation
             {
                 EvaluationLanguagePair language =
                     new EvaluationLanguagePairsRepository().Select(
-                        lp => 
+                        lp =>
                             lp.SourceLanguage.Code.ToLower().Replace('_', '-') == sourceCode &&
                             lp.TargetLanguage.Code.ToLower().Replace('_', '-') == targetCode).
                         FirstOrDefault();
@@ -433,7 +491,7 @@ namespace AcceptFramework.Business.Evaluation
             XAttribute provider = target.Attribute("provider");
             if (provider != null)
                 if (provider.Value != resultDoc.Provider.Name)
-                {      
+                {
                 }
         }
 
@@ -531,9 +589,9 @@ namespace AcceptFramework.Business.Evaluation
 
         public List<EvaluationQuestion> GetAllQuestions(int Id)
         {
-           
+
             var project = generateEvaluationProjectToken(EvaluationProjectRepository.GetProject(Id));
-            var list = project.Questions.ToList();            
+            var list = project.Questions.ToList();
             return list;
         }
 
@@ -564,8 +622,8 @@ namespace AcceptFramework.Business.Evaluation
         public List<EvaluationQuestion> GetAllQuestions(int Id, string key, string language, string category, string question, string domain)
         {
             var list = new List<EvaluationQuestion>();
-            var dblist = new List<EvaluationQuestion>();                        
-            var project = generateEvaluationProjectToken(EvaluationProjectRepository.GetProject(Id));                        
+            var dblist = new List<EvaluationQuestion>();
+            var project = generateEvaluationProjectToken(EvaluationProjectRepository.GetProject(Id));
             int iQuestionId = 0;
 
             if (project == null)
@@ -626,7 +684,7 @@ namespace AcceptFramework.Business.Evaluation
                     list.Add(evaluationQuestion);
                 }
             }
-            
+
             return list;
         }
 
@@ -739,6 +797,7 @@ namespace AcceptFramework.Business.Evaluation
             return true;
         }
 
+        #region InternalEvaluation
         public bool DeleteProject(int id)
         {
             var project = EvaluationProjectRepository.GetProject(id);
@@ -770,10 +829,200 @@ namespace AcceptFramework.Business.Evaluation
                 EvaluationQuestionsRepository.Delete(category);
             }
 
+            List<EvaluationUserProjectRole> userProjectRoles = EvaluationUserProjectRoleRepository.GetEvaluationUserProjectRoleByProject(project).ToList();
+            foreach (EvaluationUserProjectRole eupr in userProjectRoles)
+                EvaluationUserProjectRoleRepository.Delete(eupr);
+
             EvaluationProjectRepository.Delete(project);
 
             return true;
         }
+
+
+        public InternalEvaluationAudit InsertEvaluationInternalAudit(InternalEvaluationAudit internalAudit)
+        {
+            if (InternalEvaluationAuditRepository.GetAllByProjectTokenAndUserAndMetadata(internalAudit.ProjectToken, internalAudit.UserName, internalAudit.Meta).ToList().Count() == 0)
+                return InternalEvaluationAuditRepository.Insert(internalAudit);
+            else
+                throw (new Exception("Duplications are not allowed."));
+        }
+
+        public List<InternalEvaluationAudit> GetEvaluationInternalAudit(string token, string user, int status)
+        {
+            return InternalEvaluationAuditRepository.GetAllByProjectTokenAndUser(token, user, status).ToList();
+        }
+
+        public EvaluationProject GetProjectByAdminToken(string token)
+        {
+            return generateEvaluationProjectToken(EvaluationProjectRepository.GetProjectByAdminToken(token));
+        }
+
+        public List<EvaluationSimpleScore> GetAllScoresFiltered(int Id, string filter)
+        {
+            return EvaluationSimpleScoresRepository.GetProjectScoresFiltered(Id, filter).ToList();
+        }
+
+        public List<string> GetUserHistoryOnInternalEvaluationProject(int Id, string filter)
+        {
+            return EvaluationSimpleScoresRepository.GetUserHistoryOnInternalEvaluationProject(Id, filter).ToList();
+        }
+
+        public List<EvaluationSimpleScore> GetInternalScores(int Id, string filter)
+        {
+            return EvaluationSimpleScoresRepository.GetInternalScores(Id, filter).ToList();
+        }
+
+
+        public EvaluationProjectInvitation[] GenerateInvitations(string[] emails, int projectId, string uniqueRoleName, out string projectName)
+        {
+
+            EvaluationProject p = EvaluationProjectRepository.GetProject(projectId);
+
+            if (p != null && p.Status == EvaluationStatus.InProgress)
+            {
+
+                projectName = p.Name;
+
+                List<EvaluationProjectInvitation> newUsersList = new List<EvaluationProjectInvitation>();
+
+                foreach (string email in emails)
+                {
+
+                    if (Utils.StringUtils.EmailValidator(email.Trim()))
+                    {
+                        User u = UserRepository.GetUserByUserName(email.Trim());
+
+                        if (u != null)
+                        {
+                            //existing user: just associate him to the project.
+                            EvaluationUserProjectRole userProjectRole = EvaluationUserProjectRoleRepository.GetEvaluationUserProjectRoleByUserAndProject(u, p);
+                            if (userProjectRole == null)
+                            {
+                                //means the user as no connection to the project at all.
+                                userProjectRole = new EvaluationUserProjectRole(u, RolesRepository.GetRole(uniqueRoleName), p);
+                                EvaluationUserProjectRoleRepository.Insert(userProjectRole);
+                                EvaluationProjectInvitation projectInvitation = new EvaluationProjectInvitation();
+                                projectInvitation.UserName = email.Trim();
+                                projectInvitation.ProjectId = p.Id;
+                                projectInvitation.ConfirmationCode = Utils.StringUtils.Generate32CharactersStringifiedGuid();
+                                projectInvitation.InvitationDate = DateTime.UtcNow;
+                                projectInvitation.Type = 1;
+                                EvaluationProjectInvitationRepository.Insert(projectInvitation);
+                                newUsersList.Add(projectInvitation);
+                            }
+                            else
+                            {
+                                //what to do if the user already exists? Currently nothing...                                                          
+                            }
+
+                        }
+                        else
+                        {
+                            //new user goes to invitation list.
+                            EvaluationProjectInvitation projectInvitation = new EvaluationProjectInvitation();
+                            projectInvitation.UserName = email.Trim();
+                            projectInvitation.ProjectId = p.Id;
+                            projectInvitation.ConfirmationCode = Utils.StringUtils.Generate32CharactersStringifiedGuid();
+                            projectInvitation.InvitationDate = DateTime.UtcNow;
+                            projectInvitation.Type = 2;
+                            EvaluationProjectInvitationRepository.Insert(projectInvitation);
+                            newUsersList.Add(projectInvitation);
+                        }
+
+                    }
+
+                }
+
+
+                return newUsersList.ToArray();
+
+            }
+
+            projectName = string.Empty;
+            return new EvaluationProjectInvitation[] { }; ;
+
+        }
+
+        public EvaluationProjectInvitation GetProjectInvite(string code)
+        {
+            return EvaluationProjectInvitationRepository.GetProjecInvitationtByConfirmationCode(code);
+        }
+
+        public EvaluationProjectInvitation GetProjectInviteByUserName(string userName)
+        {
+            return EvaluationProjectInvitationRepository.GetNextValidProjectInvitationByUserName(userName);
+        }
+
+        public EvaluationProjectInvitation UpdateProjectInvitationConfirmationCode(string code)
+        {
+            EvaluationProjectInvitation projInvitation = EvaluationProjectInvitationRepository.GetProjecInvitationtByConfirmationCode(code);
+            User u = UserRepository.GetUserByUserName(projInvitation.UserName);
+            EvaluationProject p = EvaluationProjectRepository.GetProject(projInvitation.ProjectId);
+            EvaluationUserProjectRole userProjectRole = new EvaluationUserProjectRole(u, RolesRepository.GetRole("ProjUser"), p);
+            EvaluationUserProjectRoleRepository.Insert(userProjectRole);
+            projInvitation.ConfirmationCode = string.Empty;
+            return EvaluationProjectInvitationRepository.UpdateProjectInvitation(projInvitation);
+        }
+
+        public EvaluationProjectInvitation UpdateProjectInvitationConfirmationDate(string code)
+        {
+            EvaluationProjectInvitation projInvitation = EvaluationProjectInvitationRepository.GetProjecInvitationtByConfirmationCode(code);
+            projInvitation.ConfirmationCode = string.Empty;
+            projInvitation.ConfirmationDate = DateTime.UtcNow;
+            return EvaluationProjectInvitationRepository.UpdateProjectInvitation(projInvitation);
+        }
+
+        public List<EvaluationProjectInvitation> GetInvitationsByProject(int projectId)
+        {
+            return EvaluationProjectInvitationRepository.GetAllByProjectId(projectId).ToList<EvaluationProjectInvitation>();
+        }
+
+        public EvaluationProjectInvitation UpdateInvitation(EvaluationProjectInvitation projectInvitation)
+        {
+            return EvaluationProjectInvitationRepository.UpdateProjectInvitation(projectInvitation);
+        }
+
+        public void AddUserToProject(string userName, int projectId)
+        {
+            User u = UserRepository.GetUserByUserName(userName);
+            if (u == null)
+                throw new Exception("User is null.");
+
+            EvaluationProject p = EvaluationProjectRepository.GetProject(projectId);
+            if (p == null)
+                throw new Exception("Project is null.");
+
+            EvaluationUserProjectRole userProjectRole = new EvaluationUserProjectRole(u, RolesRepository.GetRole("ProjUser"), p);
+            EvaluationUserProjectRoleRepository.Insert(userProjectRole);
+        }
+
+        public void AddUserToProject(string userName, string projectAdminToken)
+        {
+            User u = UserRepository.GetUserByUserName(userName);
+            if (u == null)
+                throw new Exception("User is null.");
+
+            EvaluationProject p = EvaluationProjectRepository.GetEvaluationProjectByAdminToken(projectAdminToken);
+            if (p == null)
+                throw new Exception("Project is null.");
+
+            EvaluationUserProjectRole userProjectRole = new EvaluationUserProjectRole(u, RolesRepository.GetRole("ProjUser"), p);
+
+            EvaluationUserProjectRoleRepository.Insert(userProjectRole);
+        }
+
+        public List<EvaluationProjectInvitation> GetProjectInvitationsByUserName(string userName)
+        {
+            return EvaluationProjectInvitationRepository.GetAllByUserName(userName).ToList<EvaluationProjectInvitation>();
+        }
+
+        public EvaluationUserProjectRole GetRoleInProjectByProjectAndUser(EvaluationProject project, User user)
+        {
+            return EvaluationUserProjectRoleRepository.GetEvaluationUserProjectRoleByUserAndProject(user, project);
+        }
+
+
+        #endregion
 
         public EvaluationContentChunk InsertContentChunk(EvaluationContentChunk newContentChunk)
         {
@@ -786,15 +1035,15 @@ namespace AcceptFramework.Business.Evaluation
         }
 
         private EvaluationProject generateEvaluationProjectToken(EvaluationProject p)
-       {
-           if (p.AdminToken == null || p.AdminToken == string.Empty)
-           {
-                p.AdminToken =  Utils.StringUtils.GenerateTinyHash(p.Name+p.Id + DateTime.UtcNow.ToString());
-                return  EvaluationProjectRepository.UpdateProject(p);          
-           }
+        {
+            if (p.AdminToken == null || p.AdminToken == string.Empty)
+            {
+                p.AdminToken = Utils.StringUtils.GenerateTinyHash(p.Name + p.Id + DateTime.UtcNow.ToString());
+                return EvaluationProjectRepository.UpdateProject(p);
+            }
 
-           return p;
-       }
+            return p;
+        }
 
     }
 }

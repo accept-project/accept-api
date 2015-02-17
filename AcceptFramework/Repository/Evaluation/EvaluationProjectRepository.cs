@@ -42,6 +42,21 @@ namespace AcceptFramework.Repository.Evaluation
         {
             new RepositoryBase<EvaluationProject>().Delete(record);
         }
-    
+
+        #region EvaluationInternal
+
+        public static EvaluationProject GetEvaluationProjectByAdminToken(string token)
+        {
+            return new RepositoryBase<EvaluationProject>().Select(a => a.AdminToken == token).FirstOrDefault();
+        }
+
+        public static EvaluationProject GetProjectByAdminToken(string token)
+        {
+            return new RepositoryBase<EvaluationProject>().Select(a => a.AdminToken == token).FirstOrDefault();
+
+        }
+
+        #endregion
+
     }
 }

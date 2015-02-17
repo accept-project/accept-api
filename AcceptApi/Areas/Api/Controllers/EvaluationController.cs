@@ -26,12 +26,11 @@ namespace AcceptApi.Areas.Api.Controllers
 
         protected IEvaluationManager EvaluationManager
         {
-            get { return _evaluationManager; }            
+            get { return _evaluationManager; }
         }
 
         [HttpPost]
         public JsonResult UploadFile(int projectId, int provider, int langpair, string file)
-
         {
             var model = EvaluationManager.UploadFile(projectId, provider, langpair, file);
             return Json(model);
@@ -65,19 +64,21 @@ namespace AcceptApi.Areas.Api.Controllers
             return Json(model);
         }
 
+        #region InternalEvaluation
         [HttpPost]
-        public JsonResult CreateProject(string name, string description, string org, string domain, string requestor)
+        public JsonResult CreateProject(string name, string description, string org, string domain, string requestor, int evaluationType, int evaluationPostEditProjectId, int evaluationMethod, int duplicationLogic, bool includeOwnerRevision, string emailBody)
         {
-            var model = EvaluationManager.CreateProject(name, description, org, domain, requestor);
+            var model = EvaluationManager.CreateProject(name, description, org, domain, requestor, evaluationType, evaluationPostEditProjectId, evaluationMethod, duplicationLogic, includeOwnerRevision, emailBody);
             return Json(model);
         }
 
         [HttpPost]
-        public JsonResult UpdateProject(int Id, string name, string description, string org, string apikey, string domain)
+        public JsonResult UpdateProject(int Id, string name, string description, string org, string apikey, string domain, int evaluationType, int evaluationPostEditProjectId, int evaluationMethod, int duplicationLogic, bool includeOwnerRevision, string emailBody)
         {
-            var model = EvaluationManager.UpdateProject(Id, name, description, org, apikey, domain);
+            var model = EvaluationManager.UpdateProject(Id, name, description, org, apikey, domain, evaluationType, evaluationPostEditProjectId, evaluationMethod, duplicationLogic, includeOwnerRevision, emailBody);
             return Json(model);
         }
+        #endregion
 
         [HttpGet]
         public JsonResult GetProject(int Id)
@@ -106,7 +107,7 @@ namespace AcceptApi.Areas.Api.Controllers
             var model = EvaluationManager.GetQuestion(Id);
             return Json(model, JsonRequestBehavior.AllowGet);
         }
-                        
+
         [HttpPost]
         public JsonResult UpdateQuestionAnswer(int Id, string name, string value)
         {
@@ -162,7 +163,7 @@ namespace AcceptApi.Areas.Api.Controllers
         {
             var model = EvaluationManager.GetAllQuestions(Id);
             JsonResult res = Json(model, JsonRequestBehavior.AllowGet);
-            return res;    
+            return res;
         }
 
         [HttpGet]
@@ -178,7 +179,7 @@ namespace AcceptApi.Areas.Api.Controllers
         public JsonpResult Questions(int Id, string key, string language, string category, string question)
         {
             string domain = GetDomain();
-            var model = EvaluationManager.GetAllQuestions(Id, key, language, category, question, domain); 
+            var model = EvaluationManager.GetAllQuestions(Id, key, language, category, question, domain);
             return new JsonpResult(model);
         }
 
@@ -192,7 +193,7 @@ namespace AcceptApi.Areas.Api.Controllers
 
         [HttpGet]
         public JsonResult Languages()
-        {            
+        {
             var model = EvaluationManager.GetAllLanguages();
             return Json(model, JsonRequestBehavior.AllowGet);
         }
@@ -222,13 +223,13 @@ namespace AcceptApi.Areas.Api.Controllers
 
             return Json(new CoreApiException("Invalid Http Verb", "Score"));
         }
-        
+
         //ie fix.
         [HttpPost]
         public string ScoreFormPost(int? Id, string key, string answer, string param1, string param2, string param3, string param4, string param5, string param6, string param7, string param8, string param9, string param10)
         {
             try
-            {                   
+            {
                 string domain = GetDomain();
                 param1 = ReplaceParameter(param1);
                 param2 = ReplaceParameter(param2);
@@ -240,51 +241,51 @@ namespace AcceptApi.Areas.Api.Controllers
                 param8 = ReplaceParameter(param8);
                 param9 = ReplaceParameter(param9);
                 param10 = ReplaceParameter(param10);
-                string model = EvaluationManager.SimpleScoreFormPost(Id.GetValueOrDefault(), key, answer, domain, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10);              
+                string model = EvaluationManager.SimpleScoreFormPost(Id.GetValueOrDefault(), key, answer, domain, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10);
                 return model;
             }
             catch (Exception e)
             {
                 return "FAILED:" + e.Message;
             }
-                         
+
         }
 
         [HttpGet]
         public JsonpResult ScoreP(int Id, string key, string answer, string param1, string param2, string param3, string param4, string param5, string param6, string param7, string param8, string param9, string param10)
-        {           
-                string domain = GetDomain();              
-                param1 = ReplaceParameter(param1);
-                param2 = ReplaceParameter(param2);
-                param3 = ReplaceParameter(param3);
-                param4 = ReplaceParameter(param4);
-                param5 = ReplaceParameter(param5);
-                param6 = ReplaceParameter(param6);
-                param7 = ReplaceParameter(param7);
-                param8 = ReplaceParameter(param8);
-                param9 = ReplaceParameter(param9);
-                param10 = ReplaceParameter(param10);
-                var model = EvaluationManager.SimpleScore(Id, key, answer, domain, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10);
-                JsonResult res = Json(model);
-                return new JsonpResult (res);                      
+        {
+            string domain = GetDomain();
+            param1 = ReplaceParameter(param1);
+            param2 = ReplaceParameter(param2);
+            param3 = ReplaceParameter(param3);
+            param4 = ReplaceParameter(param4);
+            param5 = ReplaceParameter(param5);
+            param6 = ReplaceParameter(param6);
+            param7 = ReplaceParameter(param7);
+            param8 = ReplaceParameter(param8);
+            param9 = ReplaceParameter(param9);
+            param10 = ReplaceParameter(param10);
+            var model = EvaluationManager.SimpleScore(Id, key, answer, domain, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10);
+            JsonResult res = Json(model);
+            return new JsonpResult(res);
         }
 
         [HttpPost]
         public JsonResult AddContentToProjectRaw(string jsonRaw, int projectId)
-        {            
+        {
             string decoded = HttpUtility.UrlDecode(jsonRaw, System.Text.Encoding.UTF8);
             var model = EvaluationManager.AddContentToProjectRaw(decoded, projectId);
-            return Json(model);         
+            return Json(model);
         }
-       
-        [HttpPost]        
+
+        [HttpPost]
         public JsonResult AddContentToProject(string token, EvaluationContentChunkDocument document)
-        {            
+        {
             return Json("");
         }
 
         private string ReplaceParameter(string param)
-        {          
+        {
             if (param == "{IP}")
             {
                 param = Request.UserHostAddress;
@@ -305,5 +306,64 @@ namespace AcceptApi.Areas.Api.Controllers
 
             return domain;
         }
+
+        #region InternalEvaluation
+
+        [HttpPost]
+        public JsonResult InviteUsers(string[] usersList, int? projectId, string uniqueRoleName, string projectOwner)
+        {
+            var model = EvaluationManager.InviteUsersToProject(usersList, projectId.GetValueOrDefault(-1), uniqueRoleName, projectOwner);
+            return Json(model);
+        }
+
+        [RestHttpVerbFilter]
+        public JsonResult Invite(string code, string httpVerb)
+        {
+
+            switch (httpVerb)
+            {
+                case "GET":
+                    {
+                        var model = EvaluationManager.GetProjectInvitation(code);
+                        return Json(model, JsonRequestBehavior.AllowGet);
+                    }
+                case "POST":
+                    {
+
+                        var model = EvaluationManager.UpdateInvitationCode(code);
+                        return Json(model);
+
+                    }
+
+            }
+
+            return Json(new CoreApiException("Invalid Http Verb", "Invite"));
+
+        }
+
+        [RestHttpVerbFilter]
+        public JsonResult InviteByUserName(string userName)
+        {
+            var model = EvaluationManager.GetProjectInvitationByUserName(userName);
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult UpdateProjectInviteConfirmationDateByCode(string code)
+        {
+            var model = EvaluationManager.UpdateInvitationConfirmationDateByCode(code);
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult AuthenticateUserByConfirmationCode(string code)
+        {
+            var model = EvaluationManager.AuthenticateUserByConfirmationCode(code);
+            return Json(model);
+        }
+
+        #endregion
+
+
     }
 }
