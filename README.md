@@ -23,7 +23,7 @@ ACCEPT API & ACCEPT Framework
 
 -	Now the next step is to sort all ACCEPT Framework dependencies and compile the project.
 
-#Solving Dependencies:Some of the dependencies might be tricky to find with NuGet, mainly the ones related with NHiberante and the proxy class. If so let me know by email and I'll provide you with the correct libs.
+####Solving Dependencies:Some of the dependencies might be tricky to find with NuGet, mainly the ones related with NHiberante and the proxy class. If so let me know by email and I'll provide you with the correct libs.
 
 ##Solving the ACCEPT Framework Project Dependencies:
 
