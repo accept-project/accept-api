@@ -238,7 +238,10 @@
     <Compile Include="Domain\Evaluation\EvaluationTargetParagraphScoring.cs" />
     <Compile Include="Domain\Evaluation\EvaluationTargetSegment.cs" />
     <Compile Include="Domain\Evaluation\EvaluationTargetSegmentScoring.cs" />
-    <Compile Include="Domain\Evaluation\EvaluationUserSpokenLanguages.cs" />
+    <Compile Include="Domain\Evaluation\EvaluationUserSpokenLanguages.cs" />	
+	<Compile Include="Domain\Evaluation\EvaluationProjectInvitation.cs" />
+	<Compile Include="Domain\Evaluation\EvaluationUserProjectRole.cs" />
+	<Compile Include="Domain\Evaluation\InternalEvaluationAudit.cs" />		
     <Compile Include="Domain\Session\AcceptSession.cs" />
     <Compile Include="Domain\Session\ApiGlobalSession.cs" />
     <Compile Include="Interfaces\Miscellaneous\IMiscellaneousManagerService.cs" />
@@ -270,6 +273,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Mapping\Evaluation\EvaluationContentChunkMap.cs" />
+	<Compile Include="Mapping\Evaluation\EvaluationProjectInvitationMap.cs" />
     <Compile Include="Mapping\Evaluation\EvaluationSimpleScoresMap.cs" />
     <Compile Include="Mapping\Evaluation\EvaluationQuestionItemAnswersMap.cs" />
     <Compile Include="Mapping\Evaluation\EvaluationQuestionItemsMap.cs" />
@@ -291,7 +295,9 @@
     <Compile Include="Mapping\Evaluation\EvaluationSourceParagraphsMap.cs" />
     <Compile Include="Mapping\Evaluation\EvaluationSourceSegmentsMap.cs" />
     <Compile Include="Mapping\Evaluation\EvaluationTargetSegmentsMap.cs" />
+	<Compile Include="Mapping\Evaluation\EvaluationUserProjectRoleMap.cs" />
     <Compile Include="Mapping\Evaluation\EvaluationUserSpokenLanguagesMap.cs" />
+	<Compile Include="Mapping\Evaluation\InternalEvaluationAuditMap.cs" />
     <Compile Include="Mapping\Miscellaneous\ExternalUsageMap.cs" />
     <Compile Include="Mapping\PostEditAudit\AlternativeTranslationMap.cs" />
     <Compile Include="Mapping\PostEditAudit\PhaseCountGroupMap.cs" />
@@ -355,6 +361,8 @@
     <Compile Include="Repository\Evaluation\EvaluationTargetParagraphScoringRepository.cs" />
     <Compile Include="Repository\Evaluation\EvaluationTargetSegmentRepository.cs" />
     <Compile Include="Repository\Evaluation\EvaluationTargetSegmentScoringRepository.cs" />
+	<Compile Include="Repository\Evaluation\EvaluationUserProjectRoleRepository.cs" />
+	<Compile Include="Repository\Evaluation\InternalEvaluationAuditRepository.cs" />
     <Compile Include="Repository\Miscellaneous\ExternalUsageRepository.cs" />
     <Compile Include="Repository\PostEditAudit\CountGroupRepository.cs" />
     <Compile Include="Repository\PostEditAudit\CountRepository.cs" />
